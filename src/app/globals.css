@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF9F6;
+  --background-secondary: #F5F4F1;
+  --background-tertiary: #EFEEEB;
+  --foreground: #1a1a1a;
+  --foreground-muted: #4a4a4a;
+  --foreground-subtle: #8a8a8a;
+  --accent: #E85A3C;
+  --accent-light: #F07058;
+  --accent-dim: rgba(232, 90, 60, 0.1);
+  --accent-gradient: linear-gradient(135deg, #E85A3C 0%, #F07058 50%, #F4866E 100%);
+  --border: #E8E7E4;
+  --border-subtle: #F0EFEC;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* White fade at top for header/logo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 40;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Typography */
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+/* Gradient utilities */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: var(--accent-gradient);
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: var(--accent-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Animation utilities */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(232, 90, 60, 0.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Scroll indicator */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Subtle grid pattern background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(26, 26, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Dot pattern */
+.bg-dots {
+  background-image: radial-gradient(rgba(26, 26, 26, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Gradient overlays */
+.gradient-fade-b {
+  background: linear-gradient(to bottom, transparent, var(--background));
+}
+
+.gradient-fade-t {
+  background: linear-gradient(to top, transparent, var(--background));
+}
+
+.gradient-fade-r {
+  background: linear-gradient(to right, var(--background), transparent);
+}
+
+.gradient-fade-l {
+  background: linear-gradient(to left, var(--background), transparent);
+}
+
+/* Hero gradient */
+.hero-gradient {
+  background: linear-gradient(180deg,
+    rgba(250, 249, 246, 1) 0%,
+    rgba(250, 249, 246, 1) 60%,
+    rgba(232, 90, 60, 0.02) 75%,
+    rgba(232, 90, 60, 0.03) 85%,
+    rgba(250, 249, 246, 0) 95%,
+    rgba(232, 90, 60, 0.01) 100%
+  );
+}
+
+/* Card with subtle gradient */
+.card-gradient {
+  background: linear-gradient(180deg,
+    var(--background) 0%,
+    var(--background-secondary) 100%
+  );
+}
+
+/* Glow effects */
+.glow-accent {
+  box-shadow: 0 0 60px rgba(232, 90, 60, 0.15);
+}
+
+.text-glow-accent {
+  text-shadow: 0 0 40px rgba(232, 90, 60, 0.25);
+}
+
+/* Image placeholder */
+.image-placeholder {
+  background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 100%);
+  border: 1px dashed var(--border);
+}
