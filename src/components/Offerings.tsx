@@ -151,12 +151,6 @@ function OfferingCard({ offering, index }: { offering: (typeof offerings)[0]; in
             <p className="text-sm text-[var(--foreground-muted)]">{offering.format}</p>
           </div>
 
-          {/* Note if exists */}
-          {offering.note && (
-            <div className={`p-4 rounded-lg bg-gradient-to-r ${offering.gradient} bg-opacity-10 border-l-4 border-[var(--accent)] mb-6`}>
-              <p className="text-sm text-[var(--foreground)]">{offering.note}</p>
-            </div>
-          )}
         </motion.div>
 
         {/* CTA / Expand toggle */}
