@@ -185,7 +185,7 @@ export default function Offerings() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="offerings" className="py-24 md:py-32 px-6 md:px-12">
+    <section id="offerings" className="pt-16 pb-12 md:pt-24 md:pb-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto" ref={ref}>
         {/* Section header */}
         <motion.div
@@ -206,23 +206,6 @@ export default function Offerings() {
             <OfferingCard key={offering.id} offering={offering} index={index} />
           ))}
         </div>
-
-        {/* Flywheel visual */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white border border-[var(--border)] rounded-full shadow-sm">
-            <span className="font-mono text-sm text-[var(--foreground-muted)]">SIGHT</span>
-            <span className="text-[var(--accent)]">→</span>
-            <span className="font-mono text-sm text-[var(--foreground-muted)]">CAPABILITY</span>
-            <span className="text-[var(--accent)]">→</span>
-            <span className="font-mono text-sm text-[var(--foreground-muted)]">SUSTENANCE</span>
-            <span className="text-[var(--accent)]">↺</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

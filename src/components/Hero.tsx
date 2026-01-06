@@ -124,7 +124,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 1 }}
               className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-3 border border-[var(--border)]"
             >
-              <p className="font-mono text-[10px] text-[var(--foreground-subtle)] mb-0.5">TRANSFORMATION</p>
+              <p className="font-mono text-[10px] text-[var(--foreground-subtle)] mb-0.5">AI TRANSFORMATION</p>
               <p className="text-base font-light">Sight → Capability → Sustenance</p>
             </motion.div>
           </motion.div>

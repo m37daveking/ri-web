@@ -42,10 +42,10 @@ export default function Header() {
             {/* Logo */}
             <a href="/" className="flex items-center group">
               <Image
-                src="/logo.png"
+                src="/RI-logo3.png"
                 alt="Radical Intelligence"
                 width={160}
-                height={160}
+                height={40}
                 className="opacity-90 group-hover:opacity-100 transition-opacity"
               />
             </a>

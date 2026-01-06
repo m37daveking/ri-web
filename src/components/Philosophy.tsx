@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const principles = [
   {
@@ -105,10 +106,14 @@ export default function Philosophy() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-10"
             >
-              <div className="aspect-video rounded-2xl image-placeholder overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center">
-                  <p className="text-sm text-[var(--foreground-subtle)]">Team / process image</p>
-                </div>
+              <div className="aspect-[926/836] rounded-2xl overflow-hidden max-w-sm">
+                <Image
+                  src="/images/team.png"
+                  alt="Team"
+                  width={926}
+                  height={836}
+                  className="w-full h-full object-contain"
+                />
               </div>
             </motion.div>
           </div>

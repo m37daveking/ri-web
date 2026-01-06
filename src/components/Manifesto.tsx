@@ -43,12 +43,12 @@ export default function Manifesto() {
                 <span className="text-6xl md:text-7xl gradient-text font-serif leading-none">"</span>
               </div>
               <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-[var(--foreground)]">
-                The bottleneck has moved upstream.
+                Clarity is the new bottleneck.
                 <br />
                 <span className="text-[var(--foreground-muted)]">
-                  Most people can now build.
+                  AI capability is everywhere.
                   <br />
-                  Very few can decide what should exist.
+                  Knowing where to apply it is rare.
                 </span>
               </blockquote>
             </motion.div>
@@ -61,16 +61,10 @@ export default function Manifesto() {
               className="space-y-5 text-[var(--foreground-muted)] leading-relaxed"
             >
               <p>
-                For twenty years, advantage came from owning capital, hiring engineers, and scaling infrastructure.
+                Every organisation understands there's a stack of possibility in AI. The companies that are pulling ahead aren't the ones with the biggest AI budgets. They're the ones who've figured out which workflows actually matter, which roles should transform first, and which use cases compound into real advantage.
               </p>
               <p>
-                In 2026, advantage comes from understanding a workflow better than anyone, encoding taste
-                and judgment, and earning trust before code exists.
-              </p>
-              <p>
-                Coding agents have moved the bottleneck upstream — into clarity. The winners won't be the
-                ones who ship fastest. They'll be the ones who pick the right constraint, obsess over one
-                problem, and turn tribal knowledge into leverage.
+                Engineering capacity is no longer the constraint. The constraint is strategic clarity, which means understanding your business deeply enough to know where AI creates leverage versus theatre. That's the work we help you do.
               </p>
             </motion.div>
 

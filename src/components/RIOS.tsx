@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const features = [
   {
@@ -53,7 +54,7 @@ export default function RIOS() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="rios" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
+    <section id="rios" className="pt-12 pb-24 md:pt-16 md:pb-32 px-6 md:px-12 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#0f172a]/3 to-white" />
 
@@ -89,14 +90,15 @@ export default function RIOS() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative">
-              {/* Main platform image placeholder */}
-              <div className="aspect-[4/3] rounded-2xl image-placeholder overflow-hidden shadow-xl border border-[var(--border)]">
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[var(--background-secondary)] to-[var(--background-tertiary)]">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl gradient-bg opacity-20" />
-                    <p className="text-sm text-[var(--foreground-subtle)]">RIOS Dashboard</p>
-                  </div>
-                </div>
+              {/* Main platform image */}
+              <div className="aspect-[1794/908] rounded-2xl overflow-hidden shadow-xl border border-[var(--border)]">
+                <Image
+                  src="/images/rios-image.png"
+                  alt="RIOS Dashboard"
+                  width={1794}
+                  height={908}
+                  className="w-full h-full object-contain"
+                />
               </div>
 
               {/* Floating card - Readiness score */}
@@ -108,10 +110,10 @@ export default function RIOS() {
               >
                 <p className="font-mono text-xs text-[var(--foreground-subtle)] mb-1">READINESS SCORE</p>
                 <div className="flex items-end gap-2">
-                  <span className="text-3xl font-light text-[var(--accent)]">78</span>
+                  <span className="text-3xl font-light text-[var(--accent)]">44</span>
                   <span className="text-sm text-[var(--foreground-muted)] mb-1">/ 100</span>
                 </div>
-                <p className="text-xs text-[var(--foreground-subtle)]">Advancing</p>
+                <p className="text-xs text-[var(--foreground-subtle)]">Developing</p>
               </motion.div>
             </div>
           </motion.div>

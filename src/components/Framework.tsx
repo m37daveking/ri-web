@@ -83,7 +83,7 @@ export default function Framework() {
   };
 
   return (
-    <section id="framework" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden bg-[var(--background-secondary)]">
+    <section id="framework" className="pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-12 relative overflow-hidden bg-[var(--background-secondary)]">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-dots opacity-30" />
 
@@ -222,38 +222,6 @@ export default function Framework() {
               ))}
             </div>
 
-            {/* Flow indicators */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 1 }}
-              className="mt-8 flex justify-center items-center gap-3 md:gap-4"
-            >
-              {movements.map((movement, i) => (
-                <div key={movement.id} className="flex items-center gap-3 md:gap-4">
-                  <span className="font-mono text-xs md:text-sm text-[var(--foreground-muted)]">{movement.label}</span>
-                  {i < movements.length - 1 && (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[var(--accent)]">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  )}
-                </div>
-              ))}
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[var(--accent)] ml-2">
-                <path d="M3 12a9 9 0 1 0 9-9" />
-                <path d="M3 3v9h9" />
-              </svg>
-            </motion.div>
-
-            {/* Flywheel note */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              className="mt-4 text-center text-sm text-[var(--foreground-subtle)]"
-            >
-              The flywheel: Sustenance feeds new Sight. Every cycle compounds.
-            </motion.p>
           </motion.div>
         </div>
       </div>
