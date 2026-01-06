@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Manifesto() {
   const ref = useRef(null);
@@ -21,10 +22,14 @@ export default function Manifesto() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-2 hidden lg:block"
           >
-            <div className="aspect-[3/4] rounded-2xl image-placeholder overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-sm text-[var(--foreground-subtle)]">Manifesto visual</p>
-              </div>
+            <div className="aspect-[1072/992] rounded-2xl overflow-hidden relative">
+              <Image
+                src="/images/manifesto.jpg"
+                alt="Manifesto"
+                width={1072}
+                height={992}
+                className="w-full h-full object-cover"
+              />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/10 to-transparent" />
             </div>

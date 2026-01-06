@@ -31,17 +31,13 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             className="md:col-span-2"
           >
-            <a href="/" className="flex items-center gap-3 mb-4">
+            <a href="/" className="inline-block mb-4">
               <Image
-                src="/logo.png"
+                src="/RI-logo3.png"
                 alt="Radical Intelligence"
-                width={32}
-                height={32}
-                className="opacity-90"
+                width={200}
+                height={50}
               />
-              <span className="font-mono text-sm tracking-wider text-[var(--foreground)]">
-                RADICAL<span className="text-[var(--accent)]">.</span>INTELLIGENCE
-              </span>
             </a>
             <p className="text-[var(--foreground-muted)] text-sm mb-6 max-w-xs">
               Capability that compounds. AI transformation across People, Process & Product.

@@ -54,7 +54,7 @@ export default function RIOS() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="rios" className="pt-12 pb-24 md:pt-16 md:pb-32 px-6 md:px-12 relative overflow-hidden">
+    <section id="rios" className="pt-12 pb-16 md:pt-16 md:pb-20 px-6 md:px-12 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#0f172a]/3 to-white" />
 
@@ -108,12 +108,8 @@ export default function RIOS() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 border border-[var(--border)]"
               >
-                <p className="font-mono text-xs text-[var(--foreground-subtle)] mb-1">READINESS SCORE</p>
-                <div className="flex items-end gap-2">
-                  <span className="text-3xl font-light text-[var(--accent)]">44</span>
-                  <span className="text-sm text-[var(--foreground-muted)] mb-1">/ 100</span>
-                </div>
-                <p className="text-xs text-[var(--foreground-subtle)]">Developing</p>
+                <p className="text-sm text-[var(--foreground)] font-medium">In-depth reporting and</p>
+                <p className="text-sm text-[var(--foreground)] font-medium">actionable insights</p>
               </motion.div>
             </div>
           </motion.div>

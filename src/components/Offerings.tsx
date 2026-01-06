@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 const offerings = [
   {
@@ -25,6 +26,7 @@ const offerings = [
     format: "2-4 week engagement. Workshop-led. Executive and operational stakeholders.",
     cta: "Start with Sight",
     gradient: "from-[#0f172a] to-[#334155]",
+    image: "/images/sight.jpg",
   },
   {
     id: "capability",
@@ -46,6 +48,7 @@ const offerings = [
     format: "Embedded sprints. Our Friendgineers working alongside your people. 6-16 weeks typical.",
     cta: "Build capability",
     gradient: "from-[#1e293b] to-[#0f172a]",
+    image: "/images/capability.jpg",
   },
   {
     id: "sustenance",
@@ -58,7 +61,7 @@ const offerings = [
       </svg>
     ),
     description:
-      "AI systems need tending. Models improve. Workflows shift. Your competitors adapt. Nurture keeps your AI capability alive and evolving.",
+      "AI systems need tending. Models improve. Workflows shift. Your competitors adapt. We stay close to keep your AI capability evolving and compounding over time.",
     deliverables: [
       "Technical maintenance and iteration",
       "Process optimisation",
@@ -68,6 +71,7 @@ const offerings = [
     format: "Story points model. Draw down as needed. Quarterly Sight sessions feed new opportunities back into the loop.",
     cta: "Stay sharp",
     gradient: "from-[#334155] to-[#1e293b]",
+    image: "/images/sustenance.jpg",
   },
 ];
 
@@ -95,16 +99,6 @@ function OfferingCard({ offering, index }: { offering: (typeof offerings)[0]; in
         {/* Gradient accent line at top */}
         <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${offering.gradient}`} />
 
-        {/* Header */}
-        <div className="flex items-start justify-between mb-6">
-          <div className={`p-3 rounded-xl bg-gradient-to-br ${offering.gradient} text-white`}>
-            {offering.icon}
-          </div>
-          <span className="font-mono text-xs text-[var(--foreground-subtle)] bg-[var(--background-secondary)] px-2 py-1 rounded">
-            0{index + 1}
-          </span>
-        </div>
-
         {/* Title and tagline */}
         <h3 className="text-2xl md:text-3xl font-light mb-2 group-hover:text-[var(--accent)] transition-colors">
           {offering.title}
@@ -114,11 +108,15 @@ function OfferingCard({ offering, index }: { offering: (typeof offerings)[0]; in
         {/* Description */}
         <p className="text-[var(--foreground-muted)] mb-6 leading-relaxed">{offering.description}</p>
 
-        {/* Image placeholder */}
-        <div className="mb-6 aspect-[16/9] rounded-xl image-placeholder overflow-hidden">
-          <div className="w-full h-full flex items-center justify-center">
-            <p className="text-sm text-[var(--foreground-subtle)]">{offering.title} visual</p>
-          </div>
+        {/* Image */}
+        <div className="mb-6 aspect-[1072/992] rounded-xl overflow-hidden">
+          <Image
+            src={offering.image}
+            alt={offering.title}
+            width={1072}
+            height={992}
+            className="w-full h-full object-cover"
+          />
         </div>
 
         {/* Expandable content */}
@@ -185,7 +183,7 @@ export default function Offerings() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="offerings" className="pt-16 pb-12 md:pt-24 md:pb-16 px-6 md:px-12">
+    <section id="offerings" className="pt-12 pb-12 md:pt-16 md:pb-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto" ref={ref}>
         {/* Section header */}
         <motion.div

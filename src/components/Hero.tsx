@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-center relative pt-32 md:pt-40 px-6 md:px-12 overflow-hidden"
+      className="min-h-screen flex flex-col justify-center relative pt-32 md:pt-40 pb-24 md:pb-32 px-6 md:px-12 overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0 hero-gradient" />
@@ -107,9 +107,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="relative hidden lg:block"
           >
-            <div className="relative aspect-[4/3] max-w-md ml-auto rounded-2xl overflow-hidden">
+            <div className="relative aspect-[1072/992] max-w-md ml-auto rounded-2xl overflow-hidden">
               <Image
-                src="/images/1.jpg"
+                src="/images/hero.jpg"
                 alt="AI Transformation"
                 fill
                 className="object-cover"
@@ -136,7 +136,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator text-[var(--foreground-subtle)]"
+        className="absolute -bottom-16 left-1/2 -translate-x-1/2 scroll-indicator text-[var(--foreground-subtle)] z-20"
       >
         <svg
           width="24"

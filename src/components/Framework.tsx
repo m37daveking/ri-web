@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 const movements = [
   { id: "sight", label: "SIGHT", description: "We help you see what should exist." },
@@ -83,7 +84,7 @@ export default function Framework() {
   };
 
   return (
-    <section id="framework" className="pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-12 relative overflow-hidden bg-[var(--background-secondary)]">
+    <section id="framework" className="pt-16 pb-12 md:pt-20 md:pb-16 px-6 md:px-12 relative overflow-hidden bg-[var(--background-secondary)]">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-dots opacity-30" />
 
@@ -121,13 +122,14 @@ export default function Framework() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:block"
           >
-            <div className="aspect-square rounded-2xl image-placeholder overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-full gradient-bg opacity-20" />
-                  <p className="text-sm text-[var(--foreground-subtle)]">Framework visual</p>
-                </div>
-              </div>
+            <div className="aspect-[1072/992] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/framework visual.jpg"
+                alt="Framework"
+                width={1072}
+                height={992}
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 

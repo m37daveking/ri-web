@@ -37,16 +37,6 @@ const principles = [
       </svg>
     ),
   },
-  {
-    title: "Technical Honesty",
-    description: "We tell you what AI can actually do today — not what the hype suggests. Grounded, real, practical.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
-      </svg>
-    ),
-  },
 ];
 
 export default function Philosophy() {
@@ -54,7 +44,7 @@ export default function Philosophy() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="philosophy" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden bg-[var(--background-secondary)]">
+    <section id="philosophy" className="pt-16 pb-24 md:pt-20 md:pb-32 px-6 md:px-12 relative overflow-hidden bg-[var(--background-secondary)]">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a]/5 via-transparent to-[#334155]/5" />
 
@@ -88,14 +78,15 @@ export default function Philosophy() {
               className="space-y-6 text-[var(--foreground-muted)] leading-relaxed"
             >
               <p>
-                AI isn't just another technological cycle — it is The Moment. A rare inflection
-                where capability is outpacing comprehension, enterprises are overwhelmed, and the
-                old consulting model is breaking under its own theatre.
+                AI capability has outpaced our collective understanding of what's possible. Every
+                organisation senses there's more they could be doing, but the gap between what AI
+                can do and knowing where to apply it has never been wider.
               </p>
               <p>
-                Our enemy is slide decks, PoCs that go nowhere, "innovation" teams that block
-                innovation, and consultancies selling armies of juniors. We build real systems.
-                We transfer real capability. We stay for what comes next.
+                We're not strategists who hand over slide decks and walk away. We're builders who
+                work alongside you — practical partners who write code, transfer skills, and stay
+                until the systems are working and your teams can run them. The measure of our
+                success is the real difference we make together.
               </p>
             </motion.div>
 
