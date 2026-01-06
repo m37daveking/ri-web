@@ -9,7 +9,7 @@ export default function Manifesto() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
+    <section className="pt-12 pb-24 md:pt-16 md:pb-32 px-6 md:px-12 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--background-secondary)] via-white to-white" />
 
@@ -44,9 +44,6 @@ export default function Manifesto() {
               transition={{ duration: 0.8 }}
               className="mb-12"
             >
-              <div className="inline-block mb-6">
-                <span className="text-6xl md:text-7xl gradient-text font-serif leading-none">"</span>
-              </div>
               <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-[var(--foreground)]">
                 Clarity is the new bottleneck.
                 <br />

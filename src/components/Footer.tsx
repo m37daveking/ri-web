@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useRef } from "react";
 
 const footerLinks = [
-  { label: "What We Do", href: "#framework" },
-  { label: "How We Work", href: "#philosophy" },
+  { label: "What We Do", href: "/#framework" },
+  { label: "How We Work", href: "/#philosophy" },
   { label: "Work", href: "/work" },
   { label: "Perspectives", href: "/perspectives" },
 ];
@@ -121,7 +121,7 @@ export default function Footer() {
 
           {/* Back to top */}
           <a
-            href="#hero"
+            href="/#hero"
             className="flex items-center gap-2 px-4 py-2 text-xs text-[var(--foreground-subtle)] hover:text-[var(--accent)] bg-white border border-[var(--border)] rounded-full hover:shadow-sm transition-all group"
           >
             <span>Back to top</span>
