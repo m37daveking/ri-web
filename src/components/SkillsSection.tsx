@@ -10,13 +10,12 @@ const offerings = [
     description:
       "In a world where everyone can build, clarity is the scarcest resource. We help you identify where AI creates real leverage — not everywhere, but in the right places.",
     deliverables: [
+      "AI Audit and readiness assessment",
       "AI Opportunity Map across People, Process, Product",
       "Prioritised transformation roadmap",
-      "Build vs Buy analysis",
-      "Risk and readiness assessment",
     ],
-    format: "2-4 week engagement",
-    gradient: "from-amber-50 via-orange-50 to-rose-50",
+    format: "AI Strategy Engagement",
+    gradient: "from-amber-100 via-orange-100 to-rose-100",
   },
   {
     id: "capability",
@@ -30,8 +29,8 @@ const offerings = [
       "Documentation and playbooks",
       "Handover protocols",
     ],
-    format: "6-16 week sprints",
-    gradient: "from-emerald-50 via-teal-50 to-cyan-50",
+    format: "AI Engineering Sprints",
+    gradient: "from-amber-100 via-orange-100 to-rose-100",
   },
   {
     id: "sustenance",
@@ -45,8 +44,8 @@ const offerings = [
       "Capability refresh as AI advances",
       "Quarterly reviews to surface new opportunities",
     ],
-    format: "Ongoing partnership",
-    gradient: "from-violet-50 via-purple-50 to-fuchsia-50",
+    format: "Ongoing Partnership",
+    gradient: "from-amber-100 via-orange-100 to-rose-100",
   },
 ];
 
@@ -84,7 +83,7 @@ export default function SkillsSection() {
             >
               {/* Header */}
               <div className="mb-4">
-                <span className="text-label text-xs text-foreground-muted mb-2 block">
+                <span className="text-label text-xs mb-2 block text-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="text-heading-md mb-1">{offering.title}</h3>

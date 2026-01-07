@@ -26,9 +26,9 @@ const config: Config = {
           light: "rgba(255, 255, 255, 0.6)",
         },
         accent: {
-          DEFAULT: "#fe6033",
-          light: "#ff7a52",
-          dim: "rgba(254, 96, 51, 0.1)",
+          DEFAULT: "#31fe6a",
+          light: "#5ffe8a",
+          dim: "rgba(49, 254, 106, 0.1)",
         },
         border: {
           DEFAULT: "rgba(26, 26, 26, 0.1)",

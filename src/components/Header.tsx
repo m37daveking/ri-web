@@ -43,7 +43,7 @@ export default function Header() {
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#1a1a1a"
+              stroke="#31fe6a"
               strokeWidth="2"
               className="transition-transform duration-300"
               style={{ transform: isMenuOpen ? "rotate(45deg)" : "rotate(0deg)" }}
@@ -51,7 +51,7 @@ export default function Header() {
               {isMenuOpen ? (
                 <path d="M18 6L6 18M6 6l12 12" />
               ) : (
-                <path d="M4 8h16M4 16h16" />
+                <path d="M4 7h16M4 12h16M4 17h16" />
               )}
             </svg>
           </button>
@@ -81,7 +81,7 @@ export default function Header() {
                   className="text-2xl font-normal tracking-tight hover:opacity-60 transition-all duration-300"
                   style={{
                     fontFamily: 'var(--font-sans), system-ui, sans-serif',
-                    color: '#1a1a1a',
+                    color: '#004051',
                     transitionDelay: isMenuOpen ? `${index * 50}ms` : "0ms",
                     opacity: isMenuOpen ? 1 : 0,
                     transform: isMenuOpen ? "translateY(0)" : "translateY(10px)"

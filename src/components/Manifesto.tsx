@@ -45,13 +45,7 @@ export default function Manifesto() {
               className="mb-12"
             >
               <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-[var(--foreground)]">
-                Clarity is the new bottleneck.
-                <br />
-                <span className="text-[var(--foreground-muted)]">
-                  AI capability is everywhere.
-                  <br />
-                  Knowing where to apply it is rare.
-                </span>
+                AI capability has arrived. Clarity is the new bottleneck.
               </blockquote>
             </motion.div>
 

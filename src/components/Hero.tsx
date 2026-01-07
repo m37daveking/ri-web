@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -54,13 +55,20 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* Hero image placeholder */}
+          {/* Hero image */}
           <motion.div
-            className="relative aspect-video w-full max-w-4xl rounded-lg overflow-hidden bg-neutral-300"
+            className="relative aspect-video w-full max-w-4xl rounded-2xl overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
+            <Image
+              src="/images/team.png"
+              alt="Radical Intelligence team"
+              fill
+              className="object-cover"
+              priority
+            />
             {/* Floating card */}
             <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur rounded-lg px-6 py-4">
               <p className="text-label text-xs mb-1">AI TRANSFORMATION</p>

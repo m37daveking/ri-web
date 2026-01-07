@@ -3,15 +3,15 @@
 import { motion } from "framer-motion";
 
 const movements = [
-  { name: "SIGHT", description: "See what should exist" },
-  { name: "CAPABILITY", description: "Build your ability to build" },
-  { name: "SUSTENANCE", description: "Stay with you as it evolves" },
+  { name: "Sight", description: "See what should exist" },
+  { name: "Capability", description: "Build your ability to build" },
+  { name: "Sustenance", description: "Stay with you as it evolves" },
 ];
 
 const domains = [
-  { name: "PEOPLE", description: "Your workforce, augmented" },
-  { name: "PROCESS", description: "Your operations, intelligent" },
-  { name: "PRODUCT", description: "Your systems, agentic" },
+  { name: "People", description: "Your workforce, augmented" },
+  { name: "Process", description: "Your operations, intelligent" },
+  { name: "Product", description: "Your systems, agentic" },
 ];
 
 const gridContent = [
@@ -67,7 +67,7 @@ export default function TechnologySection() {
                   key={m.name}
                   className={`border-b border-neutral-200 p-6 ${i < movements.length - 1 ? 'border-r' : ''}`}
                 >
-                  <p className="text-label text-xs text-foreground-muted mb-2">{m.name}</p>
+                  <p className="text-heading-sm mb-2">{m.name}</p>
                   <p className="text-body text-foreground">{m.description}</p>
                 </div>
               ))}
@@ -78,14 +78,14 @@ export default function TechnologySection() {
               <div key={domain.name} className="grid grid-cols-4">
                 {/* Domain label */}
                 <div className={`border-r border-neutral-200 p-6 ${rowIndex < domains.length - 1 ? 'border-b' : ''}`}>
-                  <p className="text-label text-xs text-foreground-muted mb-2">{domain.name}</p>
+                  <p className="text-heading-sm mb-2">{domain.name}</p>
                   <p className="text-body text-foreground">{domain.description}</p>
                 </div>
                 {/* Grid cells */}
                 {gridContent[rowIndex].map((cell, colIndex) => (
                   <div
                     key={colIndex}
-                    className={`p-6 group hover:bg-neutral-50 transition-colors ${
+                    className={`p-6 group hover:bg-gradient-to-br hover:from-amber-100 hover:via-orange-100 hover:to-rose-100 transition-colors ${
                       rowIndex < domains.length - 1 ? 'border-b border-neutral-200' : ''
                     } ${colIndex < gridContent[rowIndex].length - 1 ? 'border-r border-neutral-200' : ''}`}
                   >

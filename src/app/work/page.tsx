@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -65,36 +66,43 @@ const caseStudies = [
 
 const filters = ["All", "Sight", "Capability", "Sustenance"];
 
-function CaseStudyCard({ study }: { study: typeof caseStudies[0] }) {
+function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: number }) {
   return (
-    <Link href={`/work/${study.slug}`} className="group block">
-      <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-background-warm">
-        <Image
-          src={study.image}
-          alt={study.title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-        <div className="absolute top-3 left-3">
-          <span className="px-2 py-1 bg-white/90 rounded text-xs font-mono text-foreground">
-            {study.category}
-          </span>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+    >
+      <Link href={`/work/${study.slug}`} className="group block">
+        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-background-warm">
+          <Image
+            src={study.image}
+            alt={study.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+          <div className="absolute top-4 left-4">
+            <span className="px-3 py-1.5 bg-white/90 backdrop-blur rounded-full text-label">
+              {study.category}
+            </span>
+          </div>
         </div>
-      </div>
-      <div className="space-y-2">
-        <div className="flex items-center justify-between">
-          <p className="text-mono-sm text-foreground-muted">{study.client}</p>
-          <p className="text-sm text-foreground-subtle">{study.year}</p>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <p className="text-label">{study.client}</p>
+            <p className="text-label text-foreground-subtle">{study.year}</p>
+          </div>
+          <h3 className="text-heading-sm group-hover:text-[var(--accent)] transition-colors duration-200">
+            {study.title}
+          </h3>
+          <p className="text-body">
+            {study.description}
+          </p>
         </div>
-        <h3 className="text-lg text-foreground group-hover:text-accent transition-colors duration-200">
-          {study.title}
-        </h3>
-        <p className="text-foreground-muted text-sm leading-relaxed">
-          {study.description}
-        </p>
-      </div>
-    </Link>
+      </Link>
+    </motion.div>
   );
 }
 
@@ -110,70 +118,100 @@ export default function WorkPage() {
       <Header />
       <main className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="pt-32 md:pt-40 pb-16 md:pb-24 px-4 md:px-8">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-mono text-accent mb-4">OUR WORK</p>
-            <h1 className="text-display-sm text-foreground mb-6">
+        <section className="pt-32 pb-16 md:pt-40 md:pb-24">
+          <div className="container">
+            <motion.p
+              className="text-label mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              OUR WORK
+            </motion.p>
+            <motion.h1
+              className="text-heading-lg mb-6 max-w-3xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               AI transformation in practice.
-            </h1>
-            <p className="text-xl text-foreground-muted max-w-2xl">
+            </motion.h1>
+            <motion.p
+              className="text-body-lg max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               Real systems. Real capability transfer. Real results across industries and organisations.
-            </p>
+            </motion.p>
           </div>
         </section>
 
         {/* Filter tabs */}
-        <section className="px-4 md:px-8 pb-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-wrap gap-2">
+        <section className="pb-12">
+          <div className="container">
+            <motion.div
+              className="flex flex-wrap gap-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               {filters.map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`px-4 py-2 text-sm rounded-full border transition-colors duration-200 ${
+                  className={`px-5 py-2.5 text-sm rounded-full border transition-all duration-200 ${
                     activeFilter === filter
                       ? "bg-foreground text-white border-foreground"
-                      : "border-border text-foreground-muted hover:border-accent hover:text-accent"
+                      : "border-[var(--border-strong)] text-foreground-muted hover:border-foreground hover:text-foreground"
                   }`}
                 >
                   {filter}
                 </button>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Case studies grid */}
-        <section className="px-4 md:px-8 pb-24 md:pb-32">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-              {filteredStudies.map((study) => (
-                <CaseStudyCard key={study.slug} study={study} />
+        <section className="pb-24 md:pb-32">
+          <div className="container">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+              {filteredStudies.map((study, index) => (
+                <CaseStudyCard key={study.slug} study={study} index={index} />
               ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="px-4 md:px-8 pb-24 md:pb-32">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="p-12 bg-background-warm rounded-lg">
-              <h2 className="text-headline-sm text-foreground mb-4">
-                Ready to start your AI transformation?
-              </h2>
-              <p className="text-foreground-muted mb-8">
-                Let&apos;s talk about where AI can create real leverage in your organisation.
-              </p>
-              <a
-                href="mailto:hello@radicalintelligence.com"
-                className="btn-pill"
-              >
-                Get in touch
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
+        <section className="pb-24 md:pb-32">
+          <div className="container">
+            <motion.div
+              className="max-w-3xl mx-auto text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="p-12 md:p-16 bg-background-warm rounded-3xl">
+                <h2 className="text-heading-md mb-4">
+                  Ready to start your AI transformation?
+                </h2>
+                <p className="text-body-lg mb-10">
+                  Let&apos;s talk about where AI can create real leverage in your organisation.
+                </p>
+                <a
+                  href="mailto:hello@radicalintelligence.com"
+                  className="btn-pill"
+                >
+                  Get in touch
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
           </div>
         </section>
       </main>

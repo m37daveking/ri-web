@@ -22,9 +22,9 @@
   --background-dark: #1a1a1a;
 
   /* Accent */
-  --accent: #fe6033;
-  --accent-light: #ff7a52;
-  --accent-dim: rgba(254, 96, 51, 0.1);
+  --accent: #31fe6a;
+  --accent-light: #5ffe8a;
+  --accent-dim: rgba(49, 254, 106, 0.1);
 
   /* Borders */
   --border: rgba(26, 26, 26, 0.1);
@@ -162,13 +162,13 @@ body {
    BUTTONS - SUNDAY.AI STYLE
    ============================================ */
 
-/* Pill button - black background */
+/* Pill button - dark teal background */
 .btn-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  background: var(--foreground);
+  background: #004051;
   color: var(--background);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 14px;
