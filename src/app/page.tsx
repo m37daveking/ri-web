@@ -1,23 +1,30 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Framework from "@/components/Framework";
-import Offerings from "@/components/Offerings";
-import RIOS from "@/components/RIOS";
-import Philosophy from "@/components/Philosophy";
-import Manifesto from "@/components/Manifesto";
+import IntroSection from "@/components/IntroSection";
+import SkillsSection from "@/components/SkillsSection";
+import TechnologySection from "@/components/TechnologySection";
+import FeaturesSection from "@/components/FeaturesSection";
+import PollSection from "@/components/PollSection";
+import CTASection from "@/components/CTASection";
+import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
+import ScrollBackground from "@/components/ScrollBackground";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <ScrollBackground>
       <Header />
-      <Hero />
-      <Framework />
-      <Offerings />
-      <RIOS />
-      <Philosophy />
-      <Manifesto />
+      <main>
+        <Hero />
+        <IntroSection />
+        <SkillsSection />
+        <TechnologySection />
+        <FeaturesSection />
+        <PollSection />
+        <CTASection />
+        <NewsletterSection />
+      </main>
       <Footer />
-    </main>
+    </ScrollBackground>
   );
 }

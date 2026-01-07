@@ -1,12 +1,11 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PillButton from "@/components/PillButton";
 
 const caseStudies: Record<string, {
   client: string;
@@ -164,9 +163,6 @@ export default function CaseStudyPage() {
   const slug = params.slug as string;
   const study = caseStudies[slug];
 
-  const heroRef = useRef(null);
-  const heroInView = useInView(heroRef, { once: true });
-
   if (!study) {
     notFound();
   }
@@ -174,143 +170,90 @@ export default function CaseStudyPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[var(--background)]">
+      <main className="min-h-screen bg-background">
         {/* Back link */}
-      <div className="fixed top-24 left-6 md:left-12 z-30">
-        <Link
-          href="/work"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-[var(--border)] rounded-full text-sm text-[var(--foreground-muted)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          All work
-        </Link>
-      </div>
-
-      {/* Hero */}
-      <section className="pt-32 md:pt-40 pb-12 md:pb-16 px-6 md:px-12" ref={heroRef}>
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+        <div className="fixed top-24 left-4 md:left-8 z-30">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-border rounded-full text-sm text-foreground-muted hover:text-accent hover:border-accent transition-colors duration-200"
           >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            All work
+          </Link>
+        </div>
+
+        {/* Hero */}
+        <section className="pt-32 md:pt-40 pb-12 md:pb-16 px-4 md:px-8">
+          <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-6">
-              <span className="px-3 py-1 text-xs font-mono bg-[var(--accent-dim)] text-[var(--accent)] rounded-full">
+              <span className="px-3 py-1 text-xs font-mono bg-accent-dim text-accent rounded-full">
                 {study.category}
               </span>
-              <span className="text-sm text-[var(--foreground-subtle)]">{study.year}</span>
+              <span className="text-sm text-foreground-subtle">{study.year}</span>
             </div>
-            <p className="font-mono text-sm text-[var(--foreground-muted)] mb-2">
-              {study.client}
-            </p>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-6 text-[var(--foreground)]">
+            <p className="text-mono text-foreground-muted mb-2">{study.client}</p>
+            <h1 className="text-headline text-foreground mb-6">
               {study.title}
             </h1>
-            <p className="text-lg md:text-xl text-[var(--foreground-muted)]">
+            <p className="text-xl text-foreground-muted">
               {study.description}
             </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Hero image */}
-      <section className="px-6 md:px-12 pb-16 md:pb-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={heroInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-5xl mx-auto"
-        >
-          <div className="aspect-[16/9] rounded-2xl overflow-hidden">
-            <Image
-              src={study.image}
-              alt={study.title}
-              width={1600}
-              height={900}
-              className="w-full h-full object-cover"
-            />
           </div>
-        </motion.div>
-      </section>
+        </section>
 
-      {/* Challenge */}
-      <section className="px-6 md:px-12 pb-16 md:pb-24">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="font-mono text-sm text-[var(--accent)] mb-4 tracking-wider">
-              THE CHALLENGE
-            </p>
-            <p className="text-lg md:text-xl text-[var(--foreground-muted)] leading-relaxed">
+        {/* Hero image */}
+        <section className="px-4 md:px-8 pb-16 md:pb-24">
+          <div className="max-w-5xl mx-auto">
+            <div className="aspect-[16/9] rounded-lg overflow-hidden">
+              <Image
+                src={study.image}
+                alt={study.title}
+                width={1600}
+                height={900}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Challenge */}
+        <section className="px-4 md:px-8 pb-16 md:pb-24">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-mono text-accent mb-4">THE CHALLENGE</p>
+            <p className="text-xl text-foreground-muted leading-relaxed">
               {study.challenge}
             </p>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Approach */}
-      <section className="px-6 md:px-12 bg-[var(--background-secondary)]">
-        <div className="max-w-4xl mx-auto py-12 md:py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="font-mono text-sm text-[var(--accent)] mb-8 tracking-wider">
-              OUR APPROACH
-            </p>
+        {/* Approach */}
+        <section className="px-4 md:px-8 bg-background-warm">
+          <div className="max-w-4xl mx-auto py-16 md:py-24">
+            <p className="text-mono text-accent mb-8">OUR APPROACH</p>
             <ul className="space-y-4">
               {study.approach.map((step, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-4"
-                >
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--accent)] text-white flex items-center justify-center text-sm font-mono">
+                <li key={index} className="flex items-start gap-4">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-mono">
                     {index + 1}
                   </span>
-                  <p className="text-[var(--foreground-muted)] leading-relaxed pt-1">
+                  <p className="text-foreground-muted leading-relaxed pt-1">
                     {step}
                   </p>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Outcomes */}
-      <section className="px-6 md:px-12 py-12 md:py-16">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="font-mono text-sm text-[var(--accent)] mb-8 tracking-wider">
-              THE OUTCOMES
-            </p>
+        {/* Outcomes */}
+        <section className="px-4 md:px-8 py-16 md:py-24">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-mono text-accent mb-8">THE OUTCOMES</p>
             <ul className="space-y-4">
               {study.outcomes.map((outcome, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-3"
-                >
+                <li key={index} className="flex items-start gap-3">
                   <svg
                     width="20"
                     height="20"
@@ -318,57 +261,47 @@ export default function CaseStudyPage() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="text-[var(--accent)] flex-shrink-0 mt-1"
+                    className="text-accent flex-shrink-0 mt-1"
                   >
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <p className="text-[var(--foreground-muted)] leading-relaxed">
+                  <p className="text-foreground-muted leading-relaxed">
                     {outcome}
                   </p>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* CTA */}
-      <section className="px-6 md:px-12 pb-24 md:pb-32">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-light mb-4 text-[var(--foreground)]">
+        {/* CTA */}
+        <section className="px-4 md:px-8 pb-24 md:pb-32">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-headline-sm text-foreground mb-4">
               Want similar results?
             </h2>
-            <p className="text-[var(--foreground-muted)] mb-8">
-              Let's talk about how we can help transform your organisation.
+            <p className="text-foreground-muted mb-8">
+              Let&apos;s talk about how we can help transform your organisation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/#contact"
-                className="inline-flex items-center gap-3 px-6 py-3 gradient-bg text-white font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
+              <PillButton
+                href="mailto:hello@radicalintelligence.com"
+                icon={
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                }
               >
                 Get in touch
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-[var(--border)] rounded-lg text-[var(--foreground-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
-              >
+              </PillButton>
+              <PillButton href="/work" variant="outline">
                 View more work
-              </Link>
+              </PillButton>
             </div>
-          </motion.div>
-        </div>
-      </section>
-    </main>
-    <Footer />
+          </div>
+        </section>
+      </main>
+      <Footer />
     </>
   );
 }
