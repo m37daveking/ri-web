@@ -35,12 +35,12 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/#offerings" className="text-body hover:text-foreground transition-colors">
-                    How We Work
+                    Our Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#philosophy" className="text-body hover:text-foreground transition-colors">
-                    Philosophy
+                  <Link href="/perspectives/manifesto" className="text-body hover:text-foreground transition-colors">
+                    Manifesto
                   </Link>
                 </li>
               </ul>
@@ -52,7 +52,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Link href="/work" className="text-body hover:text-foreground transition-colors">
-                    Work
+                    Our Work
                   </Link>
                 </li>
                 <li>

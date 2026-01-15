@@ -59,9 +59,6 @@ export default function Manifesto() {
               <p>
                 Every organisation understands there's a stack of possibility in AI. The companies that are pulling ahead aren't the ones with the biggest AI budgets. They're the ones who've figured out which workflows actually matter, which roles should transform first, and which use cases compound into real advantage.
               </p>
-              <p>
-                Engineering capacity is no longer the constraint. The constraint is strategic clarity, which means understanding your business deeply enough to know where AI creates leverage versus theatre. That's the work we help you do.
-              </p>
             </motion.div>
 
             {/* Closing question */}

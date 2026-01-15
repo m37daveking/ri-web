@@ -36,7 +36,7 @@ export default function PerspectivesPage() {
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
               The Transformation Flow
             </h1>
-            <p className="text-lg text-[var(--muted-foreground)] mb-16 max-w-2xl">
+            <p className="text-prose mb-16 max-w-2xl">
               Our framework visualized. From Sight through People, Process, and Product
               to Capability and ongoing Sustenance.
             </p>

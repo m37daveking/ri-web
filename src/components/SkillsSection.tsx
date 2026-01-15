@@ -15,7 +15,7 @@ const offerings = [
       "Prioritised transformation roadmap",
     ],
     format: "AI Strategy Engagement",
-    gradient: "from-amber-100 via-orange-100 to-rose-100",
+    gradient: "",
   },
   {
     id: "capability",
@@ -30,7 +30,7 @@ const offerings = [
       "Handover protocols",
     ],
     format: "AI Engineering Sprints",
-    gradient: "from-amber-100 via-orange-100 to-rose-100",
+    gradient: "",
   },
   {
     id: "sustenance",
@@ -45,7 +45,7 @@ const offerings = [
       "Quarterly reviews to surface new opportunities",
     ],
     format: "Ongoing Partnership",
-    gradient: "from-amber-100 via-orange-100 to-rose-100",
+    gradient: "",
   },
 ];
 
@@ -61,12 +61,12 @@ export default function SkillsSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-label mb-4">HOW WE WORK</p>
+          <p className="text-label mb-4">OUR SERVICES</p>
           <h2 className="text-heading-lg mb-6">
             Enter anywhere. We meet you where you are.
           </h2>
           <p className="text-body-lg text-foreground-muted">
-            Three movements that guide organisations from clarity to capability to continuous evolution.
+            Radical Intelligence orchestrates three movements that guide organisations from clarity to capability to continuous evolution.
           </p>
         </motion.div>
 
@@ -75,7 +75,7 @@ export default function SkillsSection() {
           {offerings.map((offering, index) => (
             <motion.div
               key={offering.id}
-              className={`group relative rounded-3xl bg-gradient-to-br ${offering.gradient} p-8 flex flex-col h-full overflow-hidden`}
+              className="group relative rounded-3xl bg-white border border-neutral-200 shadow-sm p-8 flex flex-col h-full overflow-hidden hover:shadow-md hover:border-neutral-300 transition-all"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}

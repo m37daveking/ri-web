@@ -5,11 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navItems = [
-  { label: "What We Do", href: "#framework" },
-  { label: "Services", href: "#offerings" },
-  { label: "RIOS", href: "#rios" },
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Work", href: "/work" },
+  { label: "What We Do", href: "/#framework" },
+  { label: "Services", href: "/#offerings" },
+  { label: "RIOS", href: "/rios" },
+  { label: "Manifesto", href: "/perspectives/manifesto" },
+  { label: "Our Work", href: "/work" },
   { label: "Perspectives", href: "/perspectives" },
 ];
 
@@ -101,7 +101,7 @@ export default function Header() {
               }}
             >
               <p className="text-sm text-neutral-500">The AI transformation company</p>
-              <p className="text-sm text-neutral-500">Disrupt yourselves</p>
+              <p className="text-sm text-neutral-500">Disrupt yourself</p>
             </div>
           </div>
         </div>

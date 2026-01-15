@@ -17,7 +17,7 @@ export default function IntroSection() {
           <p className="text-body-lg mb-12">
             AI capability has outpaced our collective understanding of what&apos;s possible.
             Every organisation senses there&apos;s more they could be doing, but the gap between
-            what AI can do and knowing where to apply it has never been wider.
+            what AI can do and knowing where to apply it has never been wider. We exist to close that gap with you.
           </p>
 
           {/* Our story video button */}

@@ -56,11 +56,6 @@ export default function PollSection() {
                 They&apos;re the ones who&apos;ve figured out which workflows actually matter, which roles
                 should transform first, and which use cases compound into real advantage.
               </p>
-              <p className="text-body">
-                Engineering capacity is no longer the constraint. The constraint is strategic
-                clarity — understanding your business deeply enough to know where AI creates
-                leverage versus theatre. That&apos;s the work we help you do.
-              </p>
             </motion.div>
 
             {/* Question box */}
