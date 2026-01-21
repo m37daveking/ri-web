@@ -52,7 +52,7 @@ export default function Hero() {
             className="max-w-xl order-1 lg:order-2"
           >
             <p className="text-lg md:text-xl lg:text-2xl text-[var(--foreground-muted)] leading-relaxed mb-8">
-              Possibility has outpaced adoption. Radical Intelligence is your AI transformation partner that helps you close the AI gap across people, process and product.
+              Possibility has outpaced adoption. Radical Intelligence is your AI transformation partner that helps you close the AI gap.
             </p>
 
             <button
