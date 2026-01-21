@@ -20,7 +20,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light leading-[0.95] tracking-tight mb-8 md:mb-12 text-[var(--foreground)]"
         >
-          Close the AI gap
+          We Build AI Capability.
         </motion.h1>
 
         {/* Subhead with image */}
@@ -52,7 +52,7 @@ export default function Hero() {
             className="max-w-xl order-1 lg:order-2"
           >
             <p className="text-lg md:text-xl lg:text-2xl text-[var(--foreground-muted)] leading-relaxed mb-8">
-              Possibility has outpaced adoption. As your AI transformation partner, we help you see where AI creates real leverage, build the capability to act on it, and stay with you as it evolves.
+              Possibility has outpaced adoption. Radical Intelligence is your AI transformation partner that helps you close the AI gap across people, process and product.
             </p>
 
             <button
