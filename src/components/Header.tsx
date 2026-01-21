@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { label: "What We Do", href: "/#framework" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/#offerings" },
   { label: "RIOS", href: "/rios" },
   { label: "Philosophy", href: "/philosophy" },
