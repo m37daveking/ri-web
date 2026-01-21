@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { label: "About", href: "/about" },
+  { label: "Perspectives", href: "/perspectives" },
+  { label: "Work", href: "/work" },
   { label: "Services", href: "/#offerings" },
   { label: "RIOS", href: "/rios" },
   { label: "Philosophy", href: "/philosophy" },
-  { label: "Work", href: "/work" },
-  { label: "Perspectives", href: "/perspectives" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Header() {
