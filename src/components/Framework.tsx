@@ -114,7 +114,7 @@ export default function Framework() {
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block"
+            className="max-w-[200px] mx-auto lg:max-w-none"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
