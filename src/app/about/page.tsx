@@ -155,15 +155,6 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Ansh Bordia */}
-              <div className="bg-white rounded-xl shadow-sm p-6">
-                <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Ansh Bordia</h3>
-                <p className="font-mono text-xs text-[var(--accent)] mb-3">AI Engineer</p>
-                <p className="text-sm text-[var(--foreground-muted)]">
-                  Specialises in leveraging cutting-edge AI models for practical applications. Focuses on rapid prototyping and building robust, scalable solutions that meet real business needs through cross-functional collaboration.
-                </p>
-              </div>
-
               {/* Damith Senanayake */}
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Damith Senanayake</h3>
