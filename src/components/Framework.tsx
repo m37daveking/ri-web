@@ -6,9 +6,9 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 
 const movements = [
-  { id: "sight", label: "SIGHT", description: "We help you see what should exist." },
-  { id: "capability", label: "CAPABILITY", description: "We build your ability to build." },
-  { id: "sustenance", label: "SUSTENANCE", description: "We stay with you as it evolves." },
+  { id: "sight", label: "STRATEGY", description: "We help you see what should exist." },
+  { id: "capability", label: "EXECUTION", description: "We build your ability to build." },
+  { id: "sustenance", label: "CULTIVATION", description: "We stay with you as it evolves." },
 ];
 
 const domains = [
@@ -84,13 +84,9 @@ export default function Framework() {
   };
 
   return (
-    <section id="framework" className="pt-16 pb-12 md:pt-20 md:pb-16 px-6 md:px-12 relative overflow-hidden bg-[var(--background-secondary)]">
+    <section id="framework" className="py-20 md:py-24 px-6 md:px-12 relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-dots opacity-30" />
-
-      {/* Gradient accents */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent" />
 
       <div className="max-w-6xl mx-auto relative z-10" ref={ref}>
         {/* Section header */}
@@ -100,13 +96,11 @@ export default function Framework() {
           transition={{ duration: 0.6 }}
           className="mb-16 md:mb-20 text-center"
         >
-          <p className="font-mono text-sm text-[var(--accent)] mb-4 tracking-wider">
-            THE FRAMEWORK
+          <p className="font-mono text-sm text-[var(--foreground)] mb-4 tracking-wider">
+            THE IMPACT
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-6 text-[var(--foreground)]">
-            Three movements. Three domains.
-            <br />
-            One transformation.
+            Three Acts. One transformation.
           </h2>
           <p className="text-lg text-[var(--foreground-muted)] max-w-2xl mx-auto">
             AI transformation isn't a single project. It's a journey through three movements —
@@ -122,15 +116,12 @@ export default function Framework() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:block"
           >
-            <div className="aspect-[1072/992] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/framework visual.jpg"
-                alt="Framework"
-                width={1072}
-                height={992}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/conductor.png"
+              alt="Conductor orchestrating AI transformation"
+              className="w-full h-auto"
+            />
           </motion.div>
 
           {/* The Grid - spans 2 columns */}

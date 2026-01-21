@@ -7,8 +7,8 @@ import Image from "next/image";
 const navItems = [
   { label: "What We Do", href: "/#framework" },
   { label: "Services", href: "/#offerings" },
-  { label: "RIOS", href: "/#rios" },
-  { label: "Philosophy", href: "/#philosophy" },
+  { label: "RIOS", href: "/rios" },
+  { label: "Philosophy", href: "/philosophy" },
   { label: "Work", href: "/work" },
   { label: "Perspectives", href: "/perspectives" },
 ];
@@ -64,7 +64,7 @@ export default function Header() {
               ))}
               <button
                 onClick={() => setIsContactOpen(true)}
-                className="px-5 py-2.5 gradient-bg text-white text-sm font-medium rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-all"
+                className="px-5 py-2.5 bg-[var(--accent)] text-black text-sm font-medium rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-all"
               >
                 Contact
               </button>
@@ -120,7 +120,7 @@ export default function Header() {
                     setIsMobileMenuOpen(false);
                     setIsContactOpen(true);
                   }}
-                  className="w-full mt-4 px-4 py-3 gradient-bg text-white font-medium rounded-lg shadow-md"
+                  className="w-full mt-4 px-4 py-3 bg-[var(--accent)] text-black font-medium rounded-lg shadow-md"
                 >
                   Contact
                 </button>
@@ -198,7 +198,7 @@ export default function Header() {
                 />
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 gradient-bg text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:scale-[1.01] transition-all"
+                  className="w-full px-6 py-3 bg-[var(--accent)] text-black font-medium rounded-lg shadow-md hover:shadow-lg hover:scale-[1.01] transition-all"
                 >
                   Start the conversation
                 </button>

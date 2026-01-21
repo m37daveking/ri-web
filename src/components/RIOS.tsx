@@ -66,7 +66,7 @@ export default function RIOS() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <p className="font-mono text-sm text-[var(--accent)] mb-4 tracking-wider">
+          <p className="font-mono text-sm text-[var(--foreground)] mb-4 tracking-wider">
             OUR PLATFORM
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-6">
@@ -150,7 +150,7 @@ export default function RIOS() {
           <div className="inline-flex flex-col sm:flex-row items-center gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 px-6 py-3 gradient-bg text-white font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all group"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-[var(--accent)] text-black font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all group"
             >
               <span>Request a demo</span>
               <svg

@@ -123,7 +123,7 @@ export default function WorkPage() {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-sm text-[var(--accent)] mb-4 tracking-wider">
+            <p className="font-mono text-sm text-[var(--foreground)] mb-4 tracking-wider">
               OUR WORK
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 text-[var(--foreground)]">
@@ -185,7 +185,7 @@ export default function WorkPage() {
             </p>
             <a
               href="/#contact"
-              className="inline-flex items-center gap-3 px-6 py-3 gradient-bg text-white font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-[var(--accent)] text-black font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
             >
               Get in touch
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

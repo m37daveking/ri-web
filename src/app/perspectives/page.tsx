@@ -30,7 +30,7 @@ export default function PerspectivesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm font-mono text-[var(--accent)] mb-4 tracking-wider uppercase">
+            <p className="text-sm font-mono text-[var(--foreground)] mb-4 tracking-wider uppercase">
               Perspectives
             </p>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">

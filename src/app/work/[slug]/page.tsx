@@ -244,7 +244,7 @@ export default function CaseStudyPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-sm text-[var(--accent)] mb-4 tracking-wider">
+            <p className="font-mono text-sm text-[var(--foreground)] mb-4 tracking-wider">
               THE CHALLENGE
             </p>
             <p className="text-lg md:text-xl text-[var(--foreground-muted)] leading-relaxed">
@@ -263,7 +263,7 @@ export default function CaseStudyPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-sm text-[var(--accent)] mb-8 tracking-wider">
+            <p className="font-mono text-sm text-[var(--foreground)] mb-8 tracking-wider">
               OUR APPROACH
             </p>
             <ul className="space-y-4">
@@ -298,7 +298,7 @@ export default function CaseStudyPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-sm text-[var(--accent)] mb-8 tracking-wider">
+            <p className="font-mono text-sm text-[var(--foreground)] mb-8 tracking-wider">
               THE OUTCOMES
             </p>
             <ul className="space-y-4">
@@ -350,7 +350,7 @@ export default function CaseStudyPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="/#contact"
-                className="inline-flex items-center gap-3 px-6 py-3 gradient-bg text-white font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-[var(--accent)] text-black font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
               >
                 Get in touch
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -9,10 +9,10 @@
   --foreground: #1a1a1a;
   --foreground-muted: #4a4a4a;
   --foreground-subtle: #8a8a8a;
-  --accent: #F06840;
-  --accent-light: #F8805A;
-  --accent-dim: rgba(240, 104, 64, 0.1);
-  --accent-gradient: linear-gradient(135deg, #F06840 0%, #F8805A 50%, #FA9670 100%);
+  --accent: #7DF579;
+  --accent-light: #9FF79C;
+  --accent-dim: rgba(125, 245, 121, 0.15);
+  --accent-gradient: linear-gradient(135deg, #7DF579 0%, #9FF79C 50%, #B5F9B2 100%);
   --border: #E8E7E4;
   --border-subtle: #F0EFEC;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
@@ -157,7 +157,7 @@ body::before {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(232, 90, 60, 0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(125, 245, 121, 0.08), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
@@ -224,10 +224,10 @@ body::before {
   background: linear-gradient(180deg,
     rgba(250, 249, 246, 1) 0%,
     rgba(250, 249, 246, 1) 60%,
-    rgba(232, 90, 60, 0.02) 75%,
-    rgba(232, 90, 60, 0.03) 85%,
+    rgba(125, 245, 121, 0.02) 75%,
+    rgba(125, 245, 121, 0.03) 85%,
     rgba(250, 249, 246, 0) 95%,
-    rgba(232, 90, 60, 0.01) 100%
+    rgba(125, 245, 121, 0.01) 100%
   );
 }
 
@@ -241,11 +241,11 @@ body::before {
 
 /* Glow effects */
 .glow-accent {
-  box-shadow: 0 0 60px rgba(232, 90, 60, 0.15);
+  box-shadow: 0 0 60px rgba(125, 245, 121, 0.15);
 }
 
 .text-glow-accent {
-  text-shadow: 0 0 40px rgba(232, 90, 60, 0.25);
+  text-shadow: 0 0 40px rgba(125, 245, 121, 0.25);
 }
 
 /* Image placeholder */
