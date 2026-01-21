@@ -15,11 +15,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Radical Intelligence : The AI Transformation Company - we work at the intersection of engineering, operations and business impact",
-  description: "We help organisations see what AI should do for them, build the capability to do it themselves, and stay with them as it evolves. Not decks. Real transformation.",
+  title: "Radical Intelligence : The AI Transformation Company",
+  description: "We work at the intersection of engineering, operations and business impact.",
   openGraph: {
-    title: "Radical Intelligence : The AI Transformation Company - we work at the intersection of engineering, operations and business impact",
-    description: "We help organisations see what AI should do for them, build the capability to do it themselves, and stay with them as it evolves. Not decks. Real transformation.",
+    title: "Radical Intelligence : The AI Transformation Company",
+    description: "We work at the intersection of engineering, operations and business impact.",
     type: "website",
   },
   keywords: [
