@@ -115,8 +115,70 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Team Section */}
       <section className="py-16 md:py-20 px-6 md:px-12 bg-[var(--background-secondary)]">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h2 className="text-2xl md:text-3xl font-light mb-10 text-[var(--foreground)]">
+              The team
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Dave King */}
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Dave King</h3>
+                <p className="font-mono text-xs text-[var(--accent)] mb-3">CEO</p>
+                <p className="text-sm text-[var(--foreground-muted)]">
+                  An award-winning creator and inventor with 20 years of experience founding and growing technology companies. He believes augmented intelligence applications can help human and machine achieve much more than either could alone.
+                </p>
+              </div>
+
+              {/* Pan Demosthenous */}
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Pan Demosthenous</h3>
+                <p className="font-mono text-xs text-[var(--accent)] mb-3">CTO</p>
+                <p className="text-sm text-[var(--foreground-muted)]">
+                  Experienced technology leader with decades of work ranging from leading mobile applications at Sky UK to building startups. Since 2016, he has focused on machine learning and language technology to solve real-world challenges.
+                </p>
+              </div>
+
+              {/* Teresa Truda */}
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Teresa Truda</h3>
+                <p className="font-mono text-xs text-[var(--accent)] mb-3">Principal</p>
+                <p className="text-sm text-[var(--foreground-muted)]">
+                  Results-driven professional specialising in business growth through strategic innovation and digital transformation. Recognised as a keynote speaker and conducts educational workshops on AI adoption and emerging technologies.
+                </p>
+              </div>
+
+              {/* Ansh Bordia */}
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Ansh Bordia</h3>
+                <p className="font-mono text-xs text-[var(--accent)] mb-3">AI Engineer</p>
+                <p className="text-sm text-[var(--foreground-muted)]">
+                  Specialises in leveraging cutting-edge AI models for practical applications. Focuses on rapid prototyping and building robust, scalable solutions that meet real business needs through cross-functional collaboration.
+                </p>
+              </div>
+
+              {/* Damith Senanayake */}
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Damith Senanayake</h3>
+                <p className="font-mono text-xs text-[var(--accent)] mb-3">AI Engineer</p>
+                <p className="text-sm text-[var(--foreground-muted)]">
+                  Software engineer with machine learning expertise spanning classical ML to large language models and multimodal data analysis. Capable of delivering end-to-end systems across forecasting, predictive analysis, and document processing domains.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
