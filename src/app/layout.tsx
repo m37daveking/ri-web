@@ -15,10 +15,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Radical Intelligence — AI Transformation Across People, Process & Product",
+  title: "Radical Intelligence : The AI Transformation Company - we work at the intersection of engineering, operations and business impact",
   description: "We help organisations see what AI should do for them, build the capability to do it themselves, and stay with them as it evolves. Not decks. Real transformation.",
   openGraph: {
-    title: "Radical Intelligence — AI Transformation Across People, Process & Product",
+    title: "Radical Intelligence : The AI Transformation Company - we work at the intersection of engineering, operations and business impact",
     description: "We help organisations see what AI should do for them, build the capability to do it themselves, and stay with them as it evolves. Not decks. Real transformation.",
     type: "website",
   },
