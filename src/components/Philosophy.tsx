@@ -77,13 +77,13 @@ export default function Philosophy() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="aspect-[926/836] rounded-2xl overflow-hidden max-w-[240px] mx-auto lg:mx-0">
+            <div className="rounded-2xl overflow-hidden max-w-[280px] mx-auto lg:mx-0">
               <Image
-                src="/images/team.png"
-                alt="Team"
-                width={926}
-                height={836}
-                className="w-full h-full object-contain"
+                src="/images/womangreen.jpg"
+                alt="AI Transformation"
+                width={280}
+                height={350}
+                className="w-full h-auto object-contain"
               />
             </div>
           </motion.div>
