@@ -38,20 +38,29 @@ export default function PerspectivesPage() {
   const [posts, setPosts] = useState<Post[]>(defaultPosts);
 
   useEffect(() => {
-    // Load posts from localStorage and merge with defaults
-    const savedPosts = localStorage.getItem("ri_posts");
-    if (savedPosts) {
-      const localPosts = JSON.parse(savedPosts) as Post[];
-      // Merge: local posts first, then defaults that aren't already in local
-      const localSlugs = new Set(localPosts.map(p => p.slug));
-      const mergedPosts = [
-        ...localPosts,
-        ...defaultPosts.filter(p => !localSlugs.has(p.slug))
-      ];
-      // Sort by date descending
-      mergedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-      setPosts(mergedPosts);
-    }
+    // Fetch posts from API
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('/api/posts');
+        const apiPosts = await response.json() as Post[];
+
+        if (apiPosts.length > 0) {
+          // Merge: API posts first, then defaults that aren't already in API
+          const apiSlugs = new Set(apiPosts.map(p => p.slug));
+          const mergedPosts = [
+            ...apiPosts,
+            ...defaultPosts.filter(p => !apiSlugs.has(p.slug))
+          ];
+          // Sort by date descending
+          mergedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+          setPosts(mergedPosts);
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+
+    fetchPosts();
   }, []);
 
   return (

@@ -21,6 +21,8 @@ export default function AdminPage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   // Form state
   const [title, setTitle] = useState("");
@@ -30,17 +32,24 @@ export default function AdminPage() {
   const [content, setContent] = useState("");
   const [saveMessage, setSaveMessage] = useState("");
 
+  const fetchPosts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/posts');
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+    setIsLoading(false);
+  };
+
   useEffect(() => {
     // Check if already authenticated
     const auth = sessionStorage.getItem("admin_auth");
     if (auth === "true") {
       setIsAuthenticated(true);
-    }
-
-    // Load posts from localStorage
-    const savedPosts = localStorage.getItem("ri_posts");
-    if (savedPosts) {
-      setPosts(JSON.parse(savedPosts));
+      fetchPosts();
     }
   }, []);
 
@@ -50,6 +59,7 @@ export default function AdminPage() {
       setIsAuthenticated(true);
       sessionStorage.setItem("admin_auth", "true");
       setError("");
+      fetchPosts();
     } else {
       setError("Incorrect password");
     }
@@ -84,8 +94,9 @@ export default function AdminPage() {
     setEditingSlug(null);
   };
 
-  const handleSavePost = (e: React.FormEvent) => {
+  const handleSavePost = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSaving(true);
 
     const newPost: Post = {
       slug,
@@ -106,13 +117,27 @@ export default function AdminPage() {
       updatedPosts = [newPost, ...posts];
     }
 
-    setPosts(updatedPosts);
-    localStorage.setItem("ri_posts", JSON.stringify(updatedPosts));
+    try {
+      const response = await fetch('/api/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ posts: updatedPosts, password: ADMIN_PASSWORD }),
+      });
 
-    setSaveMessage(editingSlug ? "Post updated!" : "Post saved!");
-    setTimeout(() => setSaveMessage(""), 3000);
+      if (response.ok) {
+        setPosts(updatedPosts);
+        setSaveMessage(editingSlug ? "Post updated!" : "Post saved!");
+        setTimeout(() => setSaveMessage(""), 3000);
+        resetForm();
+      } else {
+        setSaveMessage("Error saving post");
+      }
+    } catch (error) {
+      console.error('Error saving post:', error);
+      setSaveMessage("Error saving post");
+    }
 
-    resetForm();
+    setIsSaving(false);
   };
 
   const handleEditPost = (post: Post) => {
@@ -125,23 +150,22 @@ export default function AdminPage() {
     setEditingSlug(post.slug);
   };
 
-  const handleDeletePost = (slugToDelete: string) => {
+  const handleDeletePost = async (slugToDelete: string) => {
     if (confirm("Are you sure you want to delete this post?")) {
-      const updatedPosts = posts.filter(p => p.slug !== slugToDelete);
-      setPosts(updatedPosts);
-      localStorage.setItem("ri_posts", JSON.stringify(updatedPosts));
+      try {
+        const response = await fetch('/api/posts', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ slug: slugToDelete, password: ADMIN_PASSWORD }),
+        });
+
+        if (response.ok) {
+          setPosts(posts.filter(p => p.slug !== slugToDelete));
+        }
+      } catch (error) {
+        console.error('Error deleting post:', error);
+      }
     }
-  };
-
-  const exportPosts = () => {
-    const dataStr = JSON.stringify(posts, null, 2);
-    const dataUri = "data:application/json;charset=utf-8," + encodeURIComponent(dataStr);
-    const exportName = "ri_posts_" + new Date().toISOString().split("T")[0] + ".json";
-
-    const linkElement = document.createElement("a");
-    linkElement.setAttribute("href", dataUri);
-    linkElement.setAttribute("download", exportName);
-    linkElement.click();
   };
 
   if (!isAuthenticated) {
@@ -182,12 +206,9 @@ export default function AdminPage() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <h1 className="text-xl font-light">Perspectives Admin</h1>
           <div className="flex items-center gap-4">
-            <button
-              onClick={exportPosts}
-              className="text-sm text-[var(--foreground-muted)] hover:text-[var(--accent)]"
-            >
-              Export JSON
-            </button>
+            <Link href="/perspectives" className="text-sm text-[var(--foreground-muted)] hover:text-[var(--accent)]">
+              View Site
+            </Link>
             <button
               onClick={handleLogout}
               className="text-sm text-[var(--foreground-muted)] hover:text-[var(--accent)]"
@@ -207,7 +228,7 @@ export default function AdminPage() {
             </h2>
 
             {saveMessage && (
-              <div className="mb-4 p-3 bg-green-50 text-green-700 rounded-lg text-sm">
+              <div className={`mb-4 p-3 rounded-lg text-sm ${saveMessage.includes('Error') ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`}>
                 {saveMessage}
               </div>
             )}
@@ -272,9 +293,10 @@ export default function AdminPage() {
               <div className="flex gap-3">
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 bg-[var(--accent)] text-black font-medium rounded-lg hover:opacity-90 transition-opacity"
+                  disabled={isSaving}
+                  className="flex-1 px-4 py-2 bg-[var(--accent)] text-black font-medium rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
                 >
-                  {isEditing ? "Update Post" : "Save Post"}
+                  {isSaving ? "Saving..." : isEditing ? "Update Post" : "Save Post"}
                 </button>
                 {isEditing && (
                   <button
@@ -291,9 +313,12 @@ export default function AdminPage() {
 
           {/* Posts List */}
           <div>
-            <h2 className="text-lg font-medium mb-4">Saved Posts ({posts.length})</h2>
+            <h2 className="text-lg font-medium mb-4">
+              Saved Posts ({posts.length})
+              {isLoading && <span className="text-sm font-normal text-[var(--foreground-muted)] ml-2">Loading...</span>}
+            </h2>
             <div className="space-y-3">
-              {posts.length === 0 ? (
+              {posts.length === 0 && !isLoading ? (
                 <p className="text-[var(--foreground-muted)] text-sm">No posts yet. Create your first post!</p>
               ) : (
                 posts.map((post) => (
@@ -306,6 +331,12 @@ export default function AdminPage() {
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-[var(--foreground-subtle)]">{post.date}</span>
                       <div className="flex gap-2">
+                        <Link
+                          href={`/perspectives/${post.slug}`}
+                          className="text-xs text-[var(--foreground-muted)] hover:text-[var(--accent)]"
+                        >
+                          View
+                        </Link>
                         <button
                           onClick={() => handleEditPost(post)}
                           className="text-xs text-[var(--accent)] hover:underline"
@@ -323,12 +354,6 @@ export default function AdminPage() {
                   </div>
                 ))
               )}
-            </div>
-
-            <div className="mt-6 p-4 bg-[var(--background-secondary)] rounded-lg">
-              <p className="text-sm text-[var(--foreground-muted)]">
-                <strong>Note:</strong> Posts are saved to your browser&apos;s localStorage. Use &quot;Export JSON&quot; to back up your posts, then add them to the code in <code className="bg-white px-1 rounded">perspectives/page.tsx</code>.
-              </p>
             </div>
           </div>
         </div>

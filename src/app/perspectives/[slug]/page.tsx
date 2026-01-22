@@ -117,16 +117,22 @@ export default function PostPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check localStorage for the post
-    const savedPosts = localStorage.getItem("ri_posts");
-    if (savedPosts) {
-      const posts = JSON.parse(savedPosts) as LocalPost[];
-      const found = posts.find(p => p.slug === slug);
-      if (found) {
-        setLocalPost(found);
+    // Fetch posts from API
+    const fetchPost = async () => {
+      try {
+        const response = await fetch('/api/posts');
+        const posts = await response.json() as LocalPost[];
+        const found = posts.find(p => p.slug === slug);
+        if (found) {
+          setLocalPost(found);
+        }
+      } catch (error) {
+        console.error('Error fetching post:', error);
       }
-    }
-    setIsLoading(false);
+      setIsLoading(false);
+    };
+
+    fetchPost();
   }, [slug]);
 
   const hardcodedPost = postsContent[slug];
