@@ -79,13 +79,13 @@ export default function PhilosophyPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="mt-10"
               >
-                <div className="aspect-[926/836] rounded-2xl overflow-hidden max-w-sm">
+                <div className="rounded-2xl overflow-hidden max-w-sm">
                   <Image
-                    src="/images/team.png"
-                    alt="Team"
-                    width={926}
-                    height={836}
-                    className="w-full h-full object-contain"
+                    src="/images/womangreen.jpg"
+                    alt="AI Transformation"
+                    width={280}
+                    height={350}
+                    className="w-full h-auto object-contain"
                   />
                 </div>
               </motion.div>
