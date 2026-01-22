@@ -20,7 +20,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light leading-[0.95] tracking-tight mb-8 md:mb-12 text-[var(--foreground)]"
         >
-          We Build AI Capability.
+          We Build<br />AI Capability.
         </motion.h1>
 
         {/* Subhead with image */}
