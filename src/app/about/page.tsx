@@ -124,7 +124,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h2 className="text-2xl md:text-3xl font-light mb-10 text-[var(--foreground)]">
-              The team
+              Leadership
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -143,24 +143,6 @@ export default function AboutPage() {
                 <p className="font-mono text-xs text-[var(--accent)] mb-3">CTO</p>
                 <p className="text-sm text-[var(--foreground-muted)]">
                   Experienced technology leader with decades of work ranging from leading mobile applications at Sky UK to building startups. Since 2016, he has focused on machine learning and language technology to solve real-world challenges.
-                </p>
-              </div>
-
-              {/* Teresa Truda */}
-              <div className="bg-white rounded-xl shadow-sm p-6">
-                <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Teresa Truda</h3>
-                <p className="font-mono text-xs text-[var(--accent)] mb-3">Principal</p>
-                <p className="text-sm text-[var(--foreground-muted)]">
-                  Results-driven professional specialising in business growth through strategic innovation and digital transformation. Recognised as a keynote speaker and conducts educational workshops on AI adoption and emerging technologies.
-                </p>
-              </div>
-
-              {/* Damith Senanayake */}
-              <div className="bg-white rounded-xl shadow-sm p-6">
-                <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Damith Senanayake</h3>
-                <p className="font-mono text-xs text-[var(--accent)] mb-3">AI Engineer</p>
-                <p className="text-sm text-[var(--foreground-muted)]">
-                  Software engineer with machine learning expertise spanning classical ML to large language models and multimodal data analysis. Capable of delivering end-to-end systems across forecasting, predictive analysis, and document processing domains.
                 </p>
               </div>
             </div>
