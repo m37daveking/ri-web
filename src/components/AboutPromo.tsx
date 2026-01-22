@@ -22,7 +22,7 @@ export default function AboutPromo() {
               ABOUT RADICAL INTELLIGENCE
             </p>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-[var(--foreground)] mb-6">
-              We work at the intersection of engineering, operations and business impact.
+              Strategy that ships. Engineering that scales.
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
               Radical Intelligence is an AI transformation company. We help organisations build lasting AI capability — not just tools, but the skills, processes, and systems to keep evolving.
