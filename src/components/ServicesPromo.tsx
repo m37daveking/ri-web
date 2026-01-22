@@ -64,8 +64,8 @@ export default function ServicesPromo() {
           </motion.div>
 
           {/* Stacked Services */}
-          <div className="flex flex-col mb-8">
-            <div className="flex flex-col gap-4">
+          <div className="flex flex-col">
+            <div className="flex flex-col gap-4 mb-8">
               {services.map((service, index) => (
                 <motion.div
                   key={service.number}
@@ -90,7 +90,6 @@ export default function ServicesPromo() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-4"
             >
               <Link
                 href="/services"
