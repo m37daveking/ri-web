@@ -10,15 +10,15 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col justify-center relative pt-28 md:pt-32 pb-14 md:pb-18 px-6 md:px-12"
+      className="flex flex-col justify-center relative pt-24 md:pt-28 pb-20 md:pb-24 px-6 md:px-12"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* Main headline */}
+        {/* Main headline - very large */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[0.95] tracking-tight mb-6 md:mb-10 text-[var(--foreground)]"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light leading-[0.95] tracking-tight mb-8 md:mb-12 text-[var(--foreground)]"
         >
           We Build AI Capability.
         </motion.h1>
@@ -30,14 +30,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="w-full lg:w-52 xl:w-60 flex-shrink-0 order-2 lg:order-1"
+            className="w-full lg:w-56 xl:w-64 flex-shrink-0 order-2 lg:order-1"
           >
             <div className="relative rounded-xl overflow-hidden">
               <Image
                 src="/images/womangreen.jpg"
                 alt="AI Transformation"
-                width={260}
-                height={325}
+                width={280}
+                height={350}
                 className="w-full h-auto object-contain"
                 priority
               />
@@ -51,7 +51,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="max-w-xl order-1 lg:order-2"
           >
-            <p className="text-lg md:text-xl lg:text-2xl text-[var(--foreground-muted)] leading-relaxed mb-6">
+            <p className="text-lg md:text-xl lg:text-2xl text-[var(--foreground-muted)] leading-relaxed mb-8">
               Possibility has outpaced adoption. We help you close the AI gap across people, process and product.
             </p>
 
