@@ -108,14 +108,14 @@ export default function PerspectivesPromo() {
               <Link href={`/perspectives/${post.slug}`}>
                 <div className="bg-white rounded-xl shadow-sm border border-[var(--border)] hover:shadow-md hover:border-[var(--accent)] transition-all group h-full flex flex-col overflow-hidden">
                   {post.image && (
-                    <div className="relative h-40 flex-shrink-0 overflow-hidden">
+                    <div className="relative h-40 flex-shrink-0 overflow-hidden bg-white">
                       <Image
                         src={post.image}
                         alt={post.title}
                         fill
-                        className="object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300"
+                        className="object-cover grayscale contrast-200 brightness-110 group-hover:contrast-200 group-hover:brightness-110 transition-all duration-300"
                       />
-                      <div className="absolute inset-0 bg-[#7CFC7C] mix-blend-multiply opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-[#7CFC7C] mix-blend-screen opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                   )}
                   <div className="p-6 flex flex-col flex-1">
