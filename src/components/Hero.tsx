@@ -34,7 +34,7 @@ export default function Hero() {
           >
             <div className="relative rounded-xl overflow-hidden">
               <Image
-                src="/images/womangreen.jpg"
+                src="/images/path-02_01.png"
                 alt="AI Transformation"
                 width={280}
                 height={350}
