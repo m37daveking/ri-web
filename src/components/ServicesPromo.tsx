@@ -64,7 +64,7 @@ export default function ServicesPromo() {
           </motion.div>
 
           {/* Stacked Services */}
-          <div className="flex flex-col">
+          <div className="flex flex-col mb-8">
             <div className="flex flex-col gap-4">
               {services.map((service, index) => (
                 <motion.div
