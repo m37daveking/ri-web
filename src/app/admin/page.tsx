@@ -32,7 +32,41 @@ export default function AdminPage() {
   const [readTime, setReadTime] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    setSaveMessage("");
+
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('password', ADMIN_PASSWORD);
+
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        const { url } = await response.json();
+        setImage(url);
+        setSaveMessage("Image uploaded!");
+        setTimeout(() => setSaveMessage(""), 3000);
+      } else {
+        setSaveMessage("Failed to upload image");
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      setSaveMessage("Failed to upload image");
+    }
+
+    setIsUploading(false);
+  };
 
   const fetchPosts = async () => {
     setIsLoading(true);
@@ -284,14 +318,41 @@ export default function AdminPage() {
               </div>
 
               <div>
-                <label className="block text-sm text-[var(--foreground-muted)] mb-1">Image URL (optional)</label>
-                <input
-                  type="text"
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
-                  placeholder="/images/post-image.jpg or https://..."
-                  className="w-full px-4 py-2 bg-[var(--background-secondary)] border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-                />
+                <label className="block text-sm text-[var(--foreground-muted)] mb-1">Image (optional)</label>
+                <div className="space-y-3">
+                  <div className="flex gap-2">
+                    <label className="flex-1 cursor-pointer">
+                      <div className={`px-4 py-2 bg-[var(--background-secondary)] border border-[var(--border)] rounded-lg text-center hover:bg-[var(--border)] transition-colors ${isUploading ? 'opacity-50' : ''}`}>
+                        {isUploading ? 'Uploading...' : 'Choose Image'}
+                      </div>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        disabled={isUploading}
+                        className="hidden"
+                      />
+                    </label>
+                    {image && (
+                      <button
+                        type="button"
+                        onClick={() => setImage("")}
+                        className="px-4 py-2 text-red-500 border border-red-200 rounded-lg hover:bg-red-50 transition-colors"
+                      >
+                        Remove
+                      </button>
+                    )}
+                  </div>
+                  {image && (
+                    <div className="relative w-full h-32 bg-[var(--background-secondary)] rounded-lg overflow-hidden">
+                      <img
+                        src={image}
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div>
