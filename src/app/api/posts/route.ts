@@ -10,6 +10,7 @@ interface Post {
   date: string;
   readTime: string;
   content: string;
+  image?: string;
 }
 
 // Seed posts that will be created on first access if storage is empty

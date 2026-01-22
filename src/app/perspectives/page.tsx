@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -12,6 +13,7 @@ interface Post {
   excerpt: string;
   date: string;
   readTime: string;
+  image?: string;
 }
 
 // Hardcoded posts - add posts here or use the admin panel
@@ -100,33 +102,47 @@ export default function PerspectivesPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link href={`/perspectives/${post.slug}`}>
-                  <div className="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-[var(--border)] hover:shadow-md hover:border-[var(--accent)] transition-all group">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                      <div className="flex-1">
-                        <h2 className="text-xl md:text-2xl font-light text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors mb-2">
-                          {post.title}
-                        </h2>
-                        <p className="text-[var(--foreground-muted)] mb-4">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center gap-4 text-sm text-[var(--foreground-subtle)]">
-                          <span>{new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-                          <span>·</span>
-                          <span>{post.readTime}</span>
+                  <div className="bg-white rounded-xl shadow-sm border border-[var(--border)] hover:shadow-md hover:border-[var(--accent)] transition-all group overflow-hidden">
+                    <div className="flex flex-col md:flex-row">
+                      {post.image && (
+                        <div className="md:w-48 lg:w-56 flex-shrink-0">
+                          <div className="relative h-48 md:h-full">
+                            <Image
+                              src={post.image}
+                              alt={post.title}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex-shrink-0">
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          className="text-[var(--foreground-subtle)] group-hover:text-[var(--accent)] group-hover:translate-x-1 transition-all"
-                        >
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
+                      )}
+                      <div className="flex-1 p-6 md:p-8 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div className="flex-1">
+                          <h2 className="text-xl md:text-2xl font-light text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors mb-2">
+                            {post.title}
+                          </h2>
+                          <p className="text-[var(--foreground-muted)] mb-4">
+                            {post.excerpt}
+                          </p>
+                          <div className="flex items-center gap-4 text-sm text-[var(--foreground-subtle)]">
+                            <span>{new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                            <span>·</span>
+                            <span>{post.readTime}</span>
+                          </div>
+                        </div>
+                        <div className="flex-shrink-0">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            className="text-[var(--foreground-subtle)] group-hover:text-[var(--accent)] group-hover:translate-x-1 transition-all"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>

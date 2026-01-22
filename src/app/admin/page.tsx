@@ -12,6 +12,7 @@ interface Post {
   date: string;
   readTime: string;
   content: string;
+  image?: string;
 }
 
 export default function AdminPage() {
@@ -30,6 +31,7 @@ export default function AdminPage() {
   const [excerpt, setExcerpt] = useState("");
   const [readTime, setReadTime] = useState("");
   const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
   const [saveMessage, setSaveMessage] = useState("");
 
   const fetchPosts = async () => {
@@ -90,6 +92,7 @@ export default function AdminPage() {
     setExcerpt("");
     setReadTime("");
     setContent("");
+    setImage("");
     setIsEditing(false);
     setEditingSlug(null);
   };
@@ -105,6 +108,7 @@ export default function AdminPage() {
       date: new Date().toISOString().split("T")[0],
       readTime: readTime || "5 min read",
       content,
+      ...(image && { image }),
     };
 
     let updatedPosts: Post[];
@@ -146,6 +150,7 @@ export default function AdminPage() {
     setExcerpt(post.excerpt);
     setReadTime(post.readTime);
     setContent(post.content);
+    setImage(post.image || "");
     setIsEditing(true);
     setEditingSlug(post.slug);
   };
@@ -274,6 +279,17 @@ export default function AdminPage() {
                   value={readTime}
                   onChange={(e) => setReadTime(e.target.value)}
                   placeholder="5 min read"
+                  className="w-full px-4 py-2 bg-[var(--background-secondary)] border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm text-[var(--foreground-muted)] mb-1">Image URL (optional)</label>
+                <input
+                  type="text"
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                  placeholder="/images/post-image.jpg or https://..."
                   className="w-full px-4 py-2 bg-[var(--background-secondary)] border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                 />
               </div>

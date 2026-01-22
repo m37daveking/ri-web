@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -13,6 +14,7 @@ interface LocalPost {
   date: string;
   readTime: string;
   content: string;
+  image?: string;
 }
 
 // Post content - add full posts here
@@ -197,11 +199,22 @@ export default function PostPage() {
               {post.title}
             </h1>
 
-            <div className="flex items-center gap-4 text-sm text-[var(--foreground-subtle)] mb-12 pb-8 border-b border-[var(--border)]">
+            <div className="flex items-center gap-4 text-sm text-[var(--foreground-subtle)] mb-8 pb-8 border-b border-[var(--border)]">
               <span>{new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
               <span>·</span>
               <span>{post.readTime}</span>
             </div>
+
+            {localPost?.image && (
+              <div className="relative w-full h-64 md:h-96 mb-10 rounded-xl overflow-hidden">
+                <Image
+                  src={localPost.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
 
             <div className="prose prose-lg max-w-none text-[var(--foreground-muted)] [&>p]:mb-6 [&>p]:leading-relaxed [&>h2]:text-2xl [&>h2]:font-light [&>h2]:text-[var(--foreground)] [&>h2]:mt-10 [&>h2]:mb-4 [&>strong]:text-[var(--foreground)] [&>p>strong]:text-[var(--foreground)]">
               {localPost ? (
