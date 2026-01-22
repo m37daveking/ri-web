@@ -9,16 +9,19 @@ const services = [
     number: "01",
     title: "Strategy",
     tagline: "See what should exist.",
+    description: "In a world where everyone can build, clarity is the scarcest resource. We help you identify where AI creates real leverage — not everywhere, but in the right places.",
   },
   {
     number: "02",
     title: "Execution",
     tagline: "Build your ability to build.",
+    description: "We don't build for you. We build with you — in a way that transfers the muscle. Your team finishes with working systems and the skills to evolve them.",
   },
   {
     number: "03",
     title: "Cultivation",
     tagline: "Stay with you as it evolves.",
+    description: "AI systems need tending. Models improve. Workflows shift. Your competitors adapt. We stay close to keep your AI capability evolving and compounding over time.",
   },
 ];
 
@@ -74,11 +77,12 @@ export default function ServicesPromo() {
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   className="bg-white rounded-xl shadow-sm p-5 border border-[var(--border)]"
                 >
-                  <div className="flex items-baseline gap-4">
-                    <p className="font-mono text-xs text-[var(--foreground-subtle)]">{service.number}</p>
+                  <div className="flex items-start gap-4">
+                    <p className="font-mono text-xs text-[var(--foreground-subtle)] mt-1">{service.number}</p>
                     <div>
                       <h3 className="text-xl font-light mb-1 text-[var(--foreground)]">{service.title}</h3>
-                      <p className="font-mono text-sm text-[var(--foreground-muted)]">{service.tagline}</p>
+                      <p className="font-mono text-sm text-[var(--foreground-muted)] mb-3">{service.tagline}</p>
+                      <p className="text-sm text-[var(--foreground-muted)] leading-relaxed">{service.description}</p>
                     </div>
                   </div>
                 </motion.div>
