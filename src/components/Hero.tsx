@@ -10,34 +10,34 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col justify-center relative pt-24 md:pt-28 pb-20 md:pb-24 px-6 md:px-12"
+      className="flex flex-col justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-6 md:px-12"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* Main headline - very large */}
+        {/* Main headline */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[0.95] tracking-tight mb-8 md:mb-12 text-[var(--foreground)]"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[0.95] tracking-tight mb-6 md:mb-8 text-[var(--foreground)]"
         >
           We Build AI Capability.
         </motion.h1>
 
         {/* Subhead with image */}
-        <div className="flex flex-col lg:flex-row justify-end items-start lg:items-end gap-6 lg:gap-10">
+        <div className="flex flex-col lg:flex-row justify-end items-start lg:items-end gap-4 lg:gap-8">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="w-full lg:w-56 xl:w-64 flex-shrink-0 order-2 lg:order-1"
+            className="w-full lg:w-44 xl:w-52 flex-shrink-0 order-2 lg:order-1"
           >
             <div className="relative rounded-xl overflow-hidden">
               <Image
                 src="/images/womangreen.jpg"
                 alt="AI Transformation"
-                width={280}
-                height={350}
+                width={220}
+                height={275}
                 className="w-full h-auto object-contain"
                 priority
               />
@@ -49,15 +49,15 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="max-w-xl order-1 lg:order-2"
+            className="max-w-lg order-1 lg:order-2"
           >
-            <p className="text-lg md:text-xl lg:text-2xl text-[var(--foreground-muted)] leading-relaxed mb-8">
+            <p className="text-base md:text-lg lg:text-xl text-[var(--foreground-muted)] leading-relaxed mb-6">
               Possibility has outpaced adoption. We help you close the AI gap across people, process and product.
             </p>
 
             <button
               onClick={() => setIsContactOpen(true)}
-              className="inline-flex items-center gap-3 text-[var(--foreground)] font-medium text-lg group"
+              className="inline-flex items-center gap-2 text-[var(--foreground)] font-medium text-base group"
             >
               <span>Get in touch</span>
               <svg
