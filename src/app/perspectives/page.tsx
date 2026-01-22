@@ -1,13 +1,21 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-// Add posts here - newest first
-const posts = [
+interface Post {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+}
+
+// Hardcoded posts - add posts here or use the admin panel
+const defaultPosts: Post[] = [
   {
     slug: "ai-capability-gap",
     title: "The AI Capability Gap",
@@ -27,6 +35,24 @@ const posts = [
 export default function PerspectivesPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [posts, setPosts] = useState<Post[]>(defaultPosts);
+
+  useEffect(() => {
+    // Load posts from localStorage and merge with defaults
+    const savedPosts = localStorage.getItem("ri_posts");
+    if (savedPosts) {
+      const localPosts = JSON.parse(savedPosts) as Post[];
+      // Merge: local posts first, then defaults that aren't already in local
+      const localSlugs = new Set(localPosts.map(p => p.slug));
+      const mergedPosts = [
+        ...localPosts,
+        ...defaultPosts.filter(p => !localSlugs.has(p.slug))
+      ];
+      // Sort by date descending
+      mergedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      setPosts(mergedPosts);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-[var(--background)]">

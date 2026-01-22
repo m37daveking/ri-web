@@ -2,9 +2,18 @@
 
 import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+interface LocalPost {
+  slug: string;
+  title: string;
+  date: string;
+  readTime: string;
+  content: string;
+}
 
 // Post content - add full posts here
 const postsContent: Record<string, {
@@ -104,9 +113,39 @@ const postsContent: Record<string, {
 export default function PostPage() {
   const params = useParams();
   const slug = params.slug as string;
-  const post = postsContent[slug];
+  const [localPost, setLocalPost] = useState<LocalPost | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  if (!post) {
+  useEffect(() => {
+    // Check localStorage for the post
+    const savedPosts = localStorage.getItem("ri_posts");
+    if (savedPosts) {
+      const posts = JSON.parse(savedPosts) as LocalPost[];
+      const found = posts.find(p => p.slug === slug);
+      if (found) {
+        setLocalPost(found);
+      }
+    }
+    setIsLoading(false);
+  }, [slug]);
+
+  const hardcodedPost = postsContent[slug];
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-[var(--background)]">
+        <Header />
+        <section className="pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-[var(--foreground-muted)]">Loading...</p>
+          </div>
+        </section>
+        <Footer />
+      </main>
+    );
+  }
+
+  if (!hardcodedPost && !localPost) {
     return (
       <main className="min-h-screen bg-[var(--background)]">
         <Header />
@@ -122,6 +161,9 @@ export default function PostPage() {
       </main>
     );
   }
+
+  // Use local post if available, otherwise hardcoded
+  const post = localPost || hardcodedPost;
 
   return (
     <main className="min-h-screen bg-[var(--background)]">
@@ -156,7 +198,11 @@ export default function PostPage() {
             </div>
 
             <div className="prose prose-lg max-w-none text-[var(--foreground-muted)] [&>p]:mb-6 [&>p]:leading-relaxed [&>h2]:text-2xl [&>h2]:font-light [&>h2]:text-[var(--foreground)] [&>h2]:mt-10 [&>h2]:mb-4 [&>strong]:text-[var(--foreground)] [&>p>strong]:text-[var(--foreground)]">
-              {post.content}
+              {localPost ? (
+                <div dangerouslySetInnerHTML={{ __html: localPost.content }} />
+              ) : (
+                hardcodedPost?.content
+              )}
             </div>
           </motion.div>
         </div>
