@@ -51,7 +51,7 @@ export default function AboutPromo() {
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-[350px] mx-auto lg:mx-0 lg:ml-auto"
+            className="max-w-[450px] mx-auto lg:mx-0 lg:ml-auto"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
