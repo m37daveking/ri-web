@@ -47,7 +47,7 @@ export default function ServicesPromo() {
         </motion.div>
 
         {/* Conductor + Services Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end mb-6">
           {/* Conductor Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -64,31 +64,33 @@ export default function ServicesPromo() {
           </motion.div>
 
           {/* Stacked Services */}
-          <div className="flex flex-col gap-4">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.number}
-                initial={{ opacity: 0, x: 30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="bg-white rounded-xl shadow-sm p-5 border border-[var(--border)]"
-              >
-                <div className="flex items-baseline gap-4">
-                  <p className="font-mono text-xs text-[var(--foreground-subtle)]">{service.number}</p>
-                  <div>
-                    <h3 className="text-xl font-light mb-1 text-[var(--foreground)]">{service.title}</h3>
-                    <p className="font-mono text-sm text-[var(--foreground-muted)]">{service.tagline}</p>
+          <div className="flex flex-col">
+            <div className="flex flex-col gap-4">
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.number}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  className="bg-white rounded-xl shadow-sm p-5 border border-[var(--border)]"
+                >
+                  <div className="flex items-baseline gap-4">
+                    <p className="font-mono text-xs text-[var(--foreground-subtle)]">{service.number}</p>
+                    <div>
+                      <h3 className="text-xl font-light mb-1 text-[var(--foreground)]">{service.title}</h3>
+                      <p className="font-mono text-sm text-[var(--foreground-muted)]">{service.tagline}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
 
-            {/* CTA - aligned with service boxes */}
+            {/* CTA - aligned with bottom of conductor */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-2"
+              className="mt-4"
             >
               <Link
                 href="/services"
