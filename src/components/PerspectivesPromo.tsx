@@ -81,7 +81,7 @@ export default function PerspectivesPromo() {
           </div>
           <Link
             href="/perspectives"
-            className="inline-flex items-center gap-2 text-[var(--accent)] hover:gap-3 transition-all font-medium"
+            className="inline-flex items-center gap-2 text-[var(--foreground)] hover:gap-3 transition-all font-medium"
           >
             <span>See all</span>
             <svg
