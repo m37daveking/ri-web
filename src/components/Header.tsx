@@ -7,7 +7,7 @@ import Image from "next/image";
 const navItems = [
   { label: "Perspectives", href: "/perspectives" },
   { label: "Work", href: "/work" },
-  { label: "Services", href: "/#offerings" },
+  { label: "Services", href: "/services" },
   { label: "RIOS", href: "/rios" },
   { label: "Philosophy", href: "/philosophy" },
   { label: "About", href: "/about" },
