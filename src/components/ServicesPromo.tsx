@@ -46,28 +46,50 @@ export default function ServicesPromo() {
           </p>
         </motion.div>
 
-        {/* Services Preview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.number}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-sm p-6 border border-[var(--border)]"
-            >
-              <p className="font-mono text-xs text-[var(--foreground-subtle)] mb-2">{service.number}</p>
-              <h3 className="text-xl font-light mb-1 text-[var(--foreground)]">{service.title}</h3>
-              <p className="font-mono text-sm text-[var(--foreground-muted)]">{service.tagline}</p>
-            </motion.div>
-          ))}
+        {/* Conductor + Services Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10">
+          {/* Conductor Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-[280px] mx-auto lg:mx-0"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/conductor.png"
+              alt="Conductor orchestrating AI transformation"
+              className="w-full h-auto"
+            />
+          </motion.div>
+
+          {/* Stacked Services */}
+          <div className="flex flex-col gap-4">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.number}
+                initial={{ opacity: 0, x: 30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className="bg-white rounded-xl shadow-sm p-5 border border-[var(--border)]"
+              >
+                <div className="flex items-baseline gap-4">
+                  <p className="font-mono text-xs text-[var(--foreground-subtle)]">{service.number}</p>
+                  <div>
+                    <h3 className="text-xl font-light mb-1 text-[var(--foreground)]">{service.title}</h3>
+                    <p className="font-mono text-sm text-[var(--foreground-muted)]">{service.tagline}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center"
         >
           <Link
