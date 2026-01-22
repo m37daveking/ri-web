@@ -79,7 +79,7 @@ export default function Philosophy() {
           >
             <div className="rounded-2xl overflow-hidden max-w-[280px] mx-auto lg:mx-0">
               <Image
-                src="/images/womangreen.jpg"
+                src="/images/path-02_01.png"
                 alt="AI Transformation"
                 width={280}
                 height={350}
