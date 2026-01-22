@@ -131,7 +131,7 @@ export default function AboutPage() {
               {/* Dave King */}
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Dave King</h3>
-                <p className="font-mono text-xs text-[var(--accent)] mb-3">CEO</p>
+                <p className="font-mono text-xs text-[var(--accent)] mb-3">Partner</p>
                 <p className="text-sm text-[var(--foreground-muted)]">
                   An award-winning creator and inventor with 20 years of experience founding and growing technology companies. He believes augmented intelligence applications can help human and machine achieve much more than either could alone.
                 </p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
               {/* Pan Demosthenous */}
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Pan Demosthenous</h3>
-                <p className="font-mono text-xs text-[var(--accent)] mb-3">CTO</p>
+                <p className="font-mono text-xs text-[var(--accent)] mb-3">Partner</p>
                 <p className="text-sm text-[var(--foreground-muted)]">
                   Experienced technology leader with decades of work ranging from leading mobile applications at Sky UK to building startups. Since 2016, he has focused on machine learning and language technology to solve real-world challenges.
                 </p>
