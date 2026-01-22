@@ -1,112 +1,114 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Link from "next/link";
-import AsciiArt from "@/components/AsciiArt";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+// Add posts here - newest first
+const posts = [
+  {
+    slug: "ai-capability-gap",
+    title: "The AI Capability Gap",
+    excerpt: "Why most organisations struggle to capture value from AI — and what to do about it.",
+    date: "2025-01-23",
+    readTime: "5 min read",
+  },
+  {
+    slug: "building-vs-buying",
+    title: "Building vs Buying AI",
+    excerpt: "A framework for deciding when to build custom AI solutions and when to leverage existing tools.",
+    date: "2025-01-15",
+    readTime: "7 min read",
+  },
+];
 
 export default function PerspectivesPage() {
-  return (
-    <div className="min-h-screen bg-[var(--background)]">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/80 backdrop-blur-md border-b border-[var(--foreground)]/5">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <span className="text-xl font-semibold tracking-tight">Radical Intelligence</span>
-          </Link>
-          <Link
-            href="/"
-            className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-          >
-            Back to Home
-          </Link>
-        </div>
-      </header>
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-      {/* Main Content */}
-      <main className="pt-32 pb-24 px-6">
+  return (
+    <main className="min-h-screen bg-[var(--background)]">
+      <Header />
+
+      {/* Hero Section */}
+      <section className="pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm font-mono text-[var(--foreground)] mb-4 tracking-wider uppercase">
-              Perspectives
+            <p className="font-mono text-sm text-[var(--foreground)] mb-4 tracking-wider">
+              PERSPECTIVES
             </p>
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-              The Transformation Flow
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 text-[var(--foreground)]">
+              Thoughts on AI transformation.
             </h1>
-            <p className="text-lg text-[var(--muted-foreground)] mb-16 max-w-2xl">
-              Our framework visualized. From Sight through People, Process, and Product
-              to Capability and ongoing Sustenance.
+            <p className="text-xl text-[var(--foreground-muted)] max-w-2xl">
+              Insights, frameworks, and practical guidance for organisations navigating the AI landscape.
             </p>
           </motion.div>
-
-          {/* ASCII Art Display */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
-          >
-            <div className="bg-[var(--secondary-background)] rounded-2xl p-8 md:p-12 border border-[var(--foreground)]/5">
-              <div className="flex items-center justify-center">
-                <AsciiArt />
-              </div>
-            </div>
-
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-[var(--accent)]/10 rounded-full blur-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[var(--accent)]/5 rounded-full blur-3xl" />
-          </motion.div>
-
-          {/* Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 grid md:grid-cols-3 gap-8"
-          >
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[var(--accent)]/10 flex items-center justify-center">
-                <span className="text-[var(--accent)] font-mono text-sm">01</span>
-              </div>
-              <h3 className="font-semibold">Sight</h3>
-              <p className="text-sm text-[var(--muted-foreground)]">
-                See what should exist. Deep analysis identifying where AI creates real value across your organisation.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[var(--accent)]/10 flex items-center justify-center">
-                <span className="text-[var(--accent)] font-mono text-sm">02</span>
-              </div>
-              <h3 className="font-semibold">Capability</h3>
-              <p className="text-sm text-[var(--muted-foreground)]">
-                Build your ability to build. Hands-on implementation that transfers skills as we deliver working solutions.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[var(--accent)]/10 flex items-center justify-center">
-                <span className="text-[var(--accent)] font-mono text-sm">03</span>
-              </div>
-              <h3 className="font-semibold">Sustenance</h3>
-              <p className="text-sm text-[var(--muted-foreground)]">
-                Stay with you as it evolves. Ongoing partnership ensuring your AI capabilities continue to compound.
-              </p>
-            </div>
-          </motion.div>
         </div>
-      </main>
+      </section>
 
-      {/* Footer */}
-      <footer className="border-t border-[var(--foreground)]/5 py-8 px-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-sm text-[var(--muted-foreground)]">
-          <p>&copy; {new Date().getFullYear()} Radical Intelligence</p>
-          <Link href="/" className="hover:text-[var(--foreground)] transition-colors">
-            Home
-          </Link>
+      {/* Posts List */}
+      <section className="py-16 md:py-20 px-6 md:px-12 bg-[var(--background-secondary)]" ref={ref}>
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6">
+            {posts.map((post, index) => (
+              <motion.article
+                key={post.slug}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Link href={`/perspectives/${post.slug}`}>
+                  <div className="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-[var(--border)] hover:shadow-md hover:border-[var(--accent)] transition-all group">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                      <div className="flex-1">
+                        <h2 className="text-xl md:text-2xl font-light text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors mb-2">
+                          {post.title}
+                        </h2>
+                        <p className="text-[var(--foreground-muted)] mb-4">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center gap-4 text-sm text-[var(--foreground-subtle)]">
+                          <span>{new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                          <span>·</span>
+                          <span>{post.readTime}</span>
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          className="text-[var(--foreground-subtle)] group-hover:text-[var(--accent)] group-hover:translate-x-1 transition-all"
+                        >
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+
+          {posts.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-[var(--foreground-muted)]">No posts yet. Check back soon.</p>
+            </div>
+          )}
         </div>
-      </footer>
-    </div>
+      </section>
+
+      <Footer />
+    </main>
   );
 }
