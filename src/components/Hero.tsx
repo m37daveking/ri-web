@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-6 md:px-12"
+      className="flex flex-col justify-center relative pt-28 md:pt-32 pb-12 md:pb-16 px-6 md:px-12"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Main headline */}
