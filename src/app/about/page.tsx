@@ -25,12 +25,9 @@ export default function AboutPage() {
             <p className="font-mono text-sm text-[var(--foreground)] mb-4 tracking-wider">
               ABOUT US
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 text-[var(--foreground)]">
-              We work at the intersection of engineering, operations and business impact.
-            </h1>
-            <p className="text-xl md:text-2xl text-[var(--foreground-muted)] leading-relaxed">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-8 text-[var(--foreground)]">
               Radical Intelligence is an AI transformation company that builds capability across people, process and product.
-            </p>
+            </h1>
           </motion.div>
         </div>
       </section>
