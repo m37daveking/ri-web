@@ -42,7 +42,7 @@ export default function ServicesPromo() {
             OUR SERVICES
           </p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-[var(--foreground)] mb-4">
-            We meet you where you are in your AI journey.
+            We orchestrate your AI journey.
           </h2>
           <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
             Whether you're curious, cautious, or already in motion—we start from where you are, not where you think you should be.
