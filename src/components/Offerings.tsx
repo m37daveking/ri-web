@@ -121,7 +121,7 @@ export default function Offerings() {
           className="mb-10 text-center"
         >
           <p className="font-mono text-sm text-[var(--foreground)] mb-4 tracking-wider">
-            THE OFFERING
+            OUR SERVICES
           </p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-[var(--foreground)] mb-4">
             We meet you where you are in your AI journey.
