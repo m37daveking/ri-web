@@ -80,8 +80,7 @@ export default function ServicesPromo() {
                   <div className="flex items-start gap-4">
                     <p className="font-mono text-xs text-[var(--foreground-subtle)] mt-1">{service.number}</p>
                     <div>
-                      <h3 className="text-xl font-light mb-1 text-[var(--foreground)]">{service.title}</h3>
-                      <p className="font-mono text-sm text-[var(--foreground-muted)] mb-3">{service.tagline}</p>
+                      <h3 className="text-xl font-light mb-3 text-[var(--foreground)]">{service.title}</h3>
                       <p className="text-sm text-[var(--foreground-muted)] leading-relaxed">{service.description}</p>
                     </div>
                   </div>
