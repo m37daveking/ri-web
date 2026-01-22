@@ -65,7 +65,7 @@ export default function PhilosophyPage() {
                   available today.
                 </p>
                 <p>
-                  So what do <strong>Radically Intelligent Organisations</strong> look like? Knowledge flows freely.
+                  So what do Radically Intelligent Organisations look like? Knowledge flows freely.
                   Decisions are faster, richer, and made at every level. Humans and machines amplify
                   each other and the organisation learns, adapts and improves with fluency. Getting
                   there is the work we do together.
