@@ -57,7 +57,7 @@ export default function AboutPromo() {
             <img
               src="/images/transpman.png"
               alt="AI Transformation"
-              className="w-full h-auto"
+              className="w-full h-auto rounded-2xl"
             />
           </motion.div>
         </div>
