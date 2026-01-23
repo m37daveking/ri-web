@@ -5,15 +5,11 @@ import Image from "next/image";
 import { useRef } from "react";
 
 const footerLinks = [
-  { label: "What We Do", href: "/#framework" },
-  { label: "How We Work", href: "/#philosophy" },
-  { label: "Work", href: "/work" },
   { label: "Perspectives", href: "/perspectives" },
-];
-
-const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com/company/radical-intelligence" },
-  { label: "GitHub", href: "https://github.com/radical-intelligence" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Philosophy", href: "/philosophy" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Footer() {
@@ -23,7 +19,7 @@ export default function Footer() {
   return (
     <footer className="py-16 md:py-24 px-6 md:px-12 bg-[var(--background-secondary)] border-t border-[var(--border)]" ref={ref}>
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Logo and tagline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,35 +73,6 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Social */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <p className="font-mono text-xs text-[var(--foreground-subtle)] mb-4 tracking-wider">
-              CONNECT
-            </p>
-            <ul className="space-y-3">
-              {socialLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-[var(--foreground-muted)] hover:text-[var(--accent)] transition-colors"
-                  >
-                    {link.label}
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                      <polyline points="15 3 21 3 21 9" />
-                      <line x1="10" y1="14" x2="21" y2="3" />
-                    </svg>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
         </div>
 
         {/* Bottom bar */}
