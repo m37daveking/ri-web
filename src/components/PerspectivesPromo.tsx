@@ -119,7 +119,7 @@ export default function PerspectivesPromo() {
                     </div>
                   )}
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-lg font-medium text-[var(--foreground)] mb-2">
+                    <h3 className="text-lg font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors mb-2">
                       {post.title}
                     </h3>
                     <p className="text-sm text-[var(--foreground-muted)] mb-4 flex-1">
