@@ -84,11 +84,6 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <div className="absolute top-4 left-4">
-            <span className="px-3 py-1 text-xs font-mono bg-white/90 rounded-full text-[var(--foreground)]">
-              {study.category}
-            </span>
-          </div>
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
@@ -133,26 +128,6 @@ export default function WorkPage() {
               Real systems. Real capability transfer. Real results across industries and organisations.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Filter tabs */}
-      <section className="px-6 md:px-12 pb-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap gap-2">
-            {["All", "Sight", "Capability", "Sustenance"].map((filter) => (
-              <button
-                key={filter}
-                className={`px-4 py-2 text-sm rounded-full border transition-colors ${
-                  filter === "All"
-                    ? "bg-[var(--foreground)] text-white border-[var(--foreground)]"
-                    : "border-[var(--border)] text-[var(--foreground-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 
