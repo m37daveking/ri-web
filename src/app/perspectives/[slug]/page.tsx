@@ -216,7 +216,7 @@ export default function PostPage() {
               </div>
             )}
 
-            <div className="prose prose-lg max-w-none text-[var(--foreground-muted)] [&>p]:mb-6 [&>p]:leading-relaxed [&>h2]:text-2xl [&>h2]:font-light [&>h2]:text-[var(--foreground)] [&>h2]:mt-10 [&>h2]:mb-4 [&>strong]:text-[var(--foreground)] [&>p>strong]:text-[var(--foreground)]">
+            <div className="prose prose-lg max-w-none text-[var(--foreground-muted)] [&_p]:mb-6 [&_p]:leading-relaxed [&_h2]:text-2xl [&_h2]:font-light [&_h2]:text-[var(--foreground)] [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-medium [&_h3]:text-[var(--foreground)] [&_h3]:mt-8 [&_h3]:mb-3 [&_strong]:text-[var(--foreground)] [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--accent)] [&_blockquote]:pl-4 [&_blockquote]:italic [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-6 [&_li]:mb-2 [&_a]:text-[var(--accent)] [&_a]:underline">
               {localPost ? (
                 <div dangerouslySetInnerHTML={{ __html: localPost.content }} />
               ) : (
