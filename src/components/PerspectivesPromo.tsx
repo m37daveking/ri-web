@@ -106,7 +106,7 @@ export default function PerspectivesPromo() {
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
             >
               <Link href={`/perspectives/${post.slug}`}>
-                <div className="bg-white rounded-xl shadow-sm border border-[var(--border)] hover:shadow-md transition-all group h-full flex flex-col overflow-hidden">
+                <div className="bg-white rounded-xl shadow-sm border border-[var(--border)] hover:shadow-md hover:border-[var(--accent)] transition-all group h-full flex flex-col overflow-hidden">
                   {post.image && (
                     <div className="relative h-40 flex-shrink-0 overflow-hidden bg-white">
                       <Image
