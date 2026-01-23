@@ -56,26 +56,26 @@ const movements = [
 ];
 
 const domains = [
-  { id: "people", label: "PEOPLE", description: "Your workforce, augmented." },
-  { id: "process", label: "PROCESS", description: "Your operations, intelligent." },
-  { id: "product", label: "PRODUCT", description: "Your systems, agentic." },
+  { id: "people", label: "PEOPLE", description: "Your augmented workforce" },
+  { id: "process", label: "PROCESS", description: "Your intelligent operations" },
+  { id: "product", label: "PRODUCT", description: "Your agentic systems" },
 ];
 
 const gridContent: Record<string, Record<string, string>> = {
   people: {
-    strategy: "Role transformation mapping",
-    execution: "AI fluency programs",
-    cultivation: "Ongoing learning",
+    strategy: "Everyone understands the evolution of their role",
+    execution: "Teams that really leverage AI",
+    cultivation: "Ongoing development of both human and agentic skills",
   },
   process: {
-    strategy: "Workflow opportunity analysis",
-    execution: "Operating model redesign",
-    cultivation: "Continuous improvement",
+    strategy: "The right bets, not all the bets",
+    execution: "Workflows that capture real value",
+    cultivation: "Optimisation, iteration, improvement",
   },
   product: {
-    strategy: "Build vs buy decisions",
-    execution: "Embedded engineering",
-    cultivation: "Nurture retainers",
+    strategy: "Build the right things",
+    execution: "AI engineering that ships",
+    cultivation: "Strategic capability evolution",
   },
 };
 

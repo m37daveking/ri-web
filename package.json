@@ -6,9 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "remotion:studio": "remotion studio",
+    "remotion:render": "remotion render RIPromo out/promo.mp4",
+    "remotion:preview": "remotion preview"
   },
   "dependencies": {
+    "@remotion/cli": "^4.0.409",
+    "@remotion/google-fonts": "^4.0.409",
+    "@remotion/transitions": "^4.0.409",
     "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
@@ -17,6 +23,7 @@
     "next": "^16.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "remotion": "^4.0.409",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
