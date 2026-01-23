@@ -25,7 +25,7 @@ export default function AboutPromo() {
               Strategy that ships. Engineering that scales.
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Radical Intelligence is an AI transformation company. We help organisations build lasting AI capability — not just tools, but the skills, processes, and systems to keep evolving.
+              Radical Intelligence is an AI transformation company. We help organisations build real AI capability — the strategy, the skills, and the systems.
             </p>
             <Link
               href="/about"
