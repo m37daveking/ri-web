@@ -2,6 +2,16 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const RichTextEditor = dynamic(() => import("@/components/RichTextEditor"), {
+  ssr: false,
+  loading: () => (
+    <div className="bg-[var(--background-secondary)] border border-[var(--border)] rounded-lg h-[400px] flex items-center justify-center">
+      <span className="text-[var(--foreground-muted)]">Loading editor...</span>
+    </div>
+  ),
+});
 
 const ADMIN_PASSWORD = "ri2025"; // Change this password
 
@@ -66,34 +76,6 @@ export default function AdminPage() {
     }
 
     setIsUploading(false);
-  };
-
-  const convertToHtml = (text: string): string => {
-    // Skip if already contains HTML tags
-    if (/<[^>]+>/.test(text)) {
-      return text;
-    }
-
-    // Split by double line breaks to get paragraphs
-    const paragraphs = text.split(/\n\s*\n/);
-
-    // Wrap each paragraph in <p> tags and convert single line breaks to <br>
-    return paragraphs
-      .map(p => p.trim())
-      .filter(p => p.length > 0)
-      .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
-      .join('\n');
-  };
-
-  const handleContentPaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
-    const pastedText = e.clipboardData.getData('text');
-
-    // Only convert if it doesn't look like HTML already
-    if (!/<[^>]+>/.test(pastedText)) {
-      e.preventDefault();
-      const converted = convertToHtml(pastedText);
-      setContent(converted);
-    }
   };
 
   const fetchPosts = async () => {
@@ -384,17 +366,12 @@ export default function AdminPage() {
               </div>
 
               <div>
-                <label className="block text-sm text-[var(--foreground-muted)] mb-1">
-                  Content <span className="text-[var(--foreground-subtle)]">(paste text - auto-converts to HTML)</span>
+                <label className="block text-sm text-[var(--foreground-muted)] mb-2">
+                  Content
                 </label>
-                <textarea
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  onPaste={handleContentPaste}
-                  required
-                  rows={12}
-                  placeholder="Paste or type your content here..."
-                  className="w-full px-4 py-2 bg-[var(--background-secondary)] border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] resize-none font-mono text-sm"
+                <RichTextEditor
+                  content={content}
+                  onChange={setContent}
                 />
               </div>
 
