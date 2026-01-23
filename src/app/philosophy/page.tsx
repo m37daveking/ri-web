@@ -45,9 +45,7 @@ export default function PhilosophyPage() {
                   OUR PHILOSOPHY
                 </p>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-8 text-[var(--foreground)]">
-                  The Future is Here,
-                  <br />
-                  Unevenly Practiced.
+                  The future is here, it&apos;s just unevenly practiced.
                 </h1>
               </motion.div>
 
