@@ -280,8 +280,11 @@ export default function RichTextEditor({ content, onChange }: RichTextEditorProp
           padding: 0;
         }
         .ProseMirror a {
-          color: var(--accent);
+          color: var(--foreground);
           text-decoration: underline;
+        }
+        .ProseMirror a:hover {
+          color: #7CFC7C;
         }
         .ProseMirror img {
           max-width: 100%;
