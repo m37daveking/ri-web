@@ -15,7 +15,7 @@ const caseStudies = [
     description: "AI agents that deliver real-time customer insights and automate administrative tasks for sales teams.",
     year: "2025",
     category: "Capability",
-    image: "/images/capability.jpg",
+    image: "/images/rea-group.jpg",
   },
   {
     slug: "the-squiz",
@@ -24,7 +24,7 @@ const caseStudies = [
     description: "A comprehensive AI content studio for story ideation, co-authoring, and editorial evaluation.",
     year: "2024",
     category: "Capability",
-    image: "/images/hero.jpg",
+    image: "/images/the-squiz.jpg",
   },
   {
     slug: "reece-group",
@@ -33,7 +33,7 @@ const caseStudies = [
     description: "LLM-powered platform aggregating customer data for personalised engagement and win-back campaigns.",
     year: "2025",
     category: "Capability",
-    image: "/images/sight.jpg",
+    image: "/images/reece-group.jpg",
   },
   {
     slug: "myob",
@@ -42,7 +42,7 @@ const caseStudies = [
     description: "Strategic masterclasses and workshops producing a prioritised backlog of AI-driven initiatives.",
     year: "2024",
     category: "Sight",
-    image: "/images/framework visual.jpg",
+    image: "/images/myob.webp",
   },
   {
     slug: "nt-government",
@@ -51,7 +51,7 @@ const caseStudies = [
     description: "Executive workshops, AI workflow design, and working prototypes for government AI adoption.",
     year: "2023",
     category: "Sight",
-    image: "/images/manifesto.jpg",
+    image: "/images/nt-government.webp",
   },
   {
     slug: "dfe-south-australia",
@@ -60,7 +60,7 @@ const caseStudies = [
     description: "Automated qualitative analysis of school review reports using the Archer AI research engine.",
     year: "2023",
     category: "Capability",
-    image: "/images/sustenance.jpg",
+    image: "/images/dfe-sa.jpg",
   },
 ];
 
