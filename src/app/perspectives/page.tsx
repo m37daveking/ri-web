@@ -72,7 +72,7 @@ export default function PerspectivesPage() {
               Thinking out loud.
             </h1>
             <p className="text-xl text-[var(--foreground-muted)] max-w-2xl">
-              Insights, frameworks, and practical guidance for organisations navigating the AI landscape.
+              Insights, frameworks, and practical guidance for organisations looking to go Radical.
             </p>
           </motion.div>
         </div>
