@@ -86,10 +86,7 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
         <div className="space-y-2">
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-[var(--foreground-subtle)] font-mono">{study.client}</p>
-            <p className="text-sm text-[var(--foreground-subtle)]">{study.year}</p>
-          </div>
+          <p className="text-sm text-[var(--foreground-subtle)] font-mono">{study.client}</p>
           <h3 className="text-xl font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
             {study.title}
           </h3>
