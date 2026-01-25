@@ -84,7 +84,7 @@ export default function PerspectivesPage() {
               PERSPECTIVES
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 text-[var(--foreground)]">
-              Thoughts on AI transformation.
+              Thinking out loud.
             </h1>
             <p className="text-xl text-[var(--foreground-muted)] max-w-2xl">
               Insights, frameworks, and practical guidance for organisations navigating the AI landscape.
