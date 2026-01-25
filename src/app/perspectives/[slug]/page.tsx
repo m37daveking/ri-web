@@ -17,100 +17,6 @@ interface LocalPost {
   image?: string;
 }
 
-// Post content - add full posts here
-const postsContent: Record<string, {
-  title: string;
-  date: string;
-  readTime: string;
-  content: React.ReactNode;
-}> = {
-  "ai-capability-gap": {
-    title: "The AI Capability Gap",
-    date: "2025-01-23",
-    readTime: "5 min read",
-    content: (
-      <>
-        <p>
-          The gap between AI&apos;s potential and most organisations&apos; ability to capture it has never been wider.
-          Every week brings announcements of new models, new capabilities, new possibilities. Yet most enterprises
-          remain stuck in pilot purgatory — running experiments that never scale, building proofs of concept that
-          never become products.
-        </p>
-        <p>
-          This isn&apos;t a technology problem. The technology works. It&apos;s a capability problem — a gap between
-          what&apos;s possible and what organisations can actually execute.
-        </p>
-        <h2>The Three Gaps</h2>
-        <p>
-          We see three distinct capability gaps holding organisations back:
-        </p>
-        <p>
-          <strong>The People Gap:</strong> Teams that understand the business don&apos;t understand AI. Teams that
-          understand AI don&apos;t understand the business. The translation layer is missing.
-        </p>
-        <p>
-          <strong>The Process Gap:</strong> Existing workflows were designed for a world where humans did everything.
-          Retrofitting AI into these processes captures a fraction of the potential value.
-        </p>
-        <p>
-          <strong>The Product Gap:</strong> Most organisations are consumers of AI, not builders. They lack the
-          engineering capability to create differentiated AI-powered products and services.
-        </p>
-        <h2>Closing the Gap</h2>
-        <p>
-          Closing these gaps requires more than buying tools or hiring consultants. It requires building lasting
-          capability — the skills, processes, and systems that allow an organisation to continuously adapt as
-          AI evolves.
-        </p>
-        <p>
-          This is the work we do at Radical Intelligence. Not building for you, but building with you — in a
-          way that transfers the muscle.
-        </p>
-      </>
-    ),
-  },
-  "building-vs-buying": {
-    title: "Building vs Buying AI",
-    date: "2025-01-15",
-    readTime: "7 min read",
-    content: (
-      <>
-        <p>
-          &quot;Should we build or buy?&quot; It&apos;s the question we hear most often from organisations starting
-          their AI journey. And like most important questions, the answer is: it depends.
-        </p>
-        <p>
-          But it depends on things most organisations aren&apos;t considering. The build vs buy decision isn&apos;t
-          primarily about cost or time-to-market. It&apos;s about where you want to create competitive advantage.
-        </p>
-        <h2>The Decision Framework</h2>
-        <p>
-          We use a simple framework to guide this decision:
-        </p>
-        <p>
-          <strong>Buy</strong> when AI is a commodity input — when the capability is table stakes and
-          differentiation comes from elsewhere. Customer service chatbots, document processing, basic
-          analytics — these are increasingly commoditised. Buy the best available and move on.
-        </p>
-        <p>
-          <strong>Build</strong> when AI is a source of differentiation — when proprietary data, unique
-          workflows, or deep domain expertise can create capabilities your competitors can&apos;t easily
-          replicate.
-        </p>
-        <h2>The Hidden Third Option</h2>
-        <p>
-          But there&apos;s a third option most organisations miss: build the capability to build. Rather than
-          outsourcing AI development entirely, invest in the internal skills and systems that allow you to
-          rapidly build and iterate on AI solutions.
-        </p>
-        <p>
-          This is where the real leverage lies. Not in any single AI application, but in the organisational
-          capability to continuously identify opportunities, experiment quickly, and scale what works.
-        </p>
-      </>
-    ),
-  },
-};
 
 export default function PostPage() {
   const params = useParams();
@@ -137,8 +43,6 @@ export default function PostPage() {
     fetchPost();
   }, [slug]);
 
-  const hardcodedPost = postsContent[slug];
-
   if (isLoading) {
     return (
       <main className="min-h-screen bg-[var(--background)]">
@@ -153,7 +57,7 @@ export default function PostPage() {
     );
   }
 
-  if (!hardcodedPost && !localPost) {
+  if (!localPost) {
     return (
       <main className="min-h-screen bg-[var(--background)]">
         <Header />
@@ -170,8 +74,7 @@ export default function PostPage() {
     );
   }
 
-  // Use local post if available, otherwise hardcoded
-  const post = localPost || hardcodedPost;
+  const post = localPost;
 
   return (
     <main className="min-h-screen bg-[var(--background)]">
@@ -205,10 +108,10 @@ export default function PostPage() {
               <span>{post.readTime}</span>
             </div>
 
-            {localPost?.image && (
+            {post.image && (
               <div className="relative w-full h-64 md:h-96 mb-10 rounded-xl overflow-hidden">
                 <Image
-                  src={localPost.image}
+                  src={post.image}
                   alt={post.title}
                   fill
                   className="object-cover"
@@ -217,11 +120,7 @@ export default function PostPage() {
             )}
 
             <div className="prose prose-lg max-w-none text-[var(--foreground-muted)] [&_p]:mb-6 [&_p]:leading-relaxed [&_h2]:text-2xl [&_h2]:font-light [&_h2]:text-[var(--foreground)] [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-medium [&_h3]:text-[var(--foreground)] [&_h3]:mt-8 [&_h3]:mb-3 [&_strong]:text-[var(--foreground)] [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--accent)] [&_blockquote]:pl-4 [&_blockquote]:italic [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-6 [&_li]:mb-2 [&_a]:text-[var(--foreground)] [&_a]:underline [&_a:hover]:text-[#7CFC7C]">
-              {localPost ? (
-                <div dangerouslySetInnerHTML={{ __html: localPost.content }} />
-              ) : (
-                hardcodedPost?.content
-              )}
+              <div dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
           </motion.div>
         </div>

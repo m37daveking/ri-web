@@ -17,23 +17,8 @@ interface Post {
   status?: 'draft' | 'published';
 }
 
-// Hardcoded posts - add posts here or use the admin panel
-const defaultPosts: Post[] = [
-  {
-    slug: "ai-capability-gap",
-    title: "The AI Capability Gap",
-    excerpt: "Why most organisations struggle to capture value from AI — and what to do about it.",
-    date: "2025-01-23",
-    readTime: "5 min read",
-  },
-  {
-    slug: "building-vs-buying",
-    title: "Building vs Buying AI",
-    excerpt: "A framework for deciding when to build custom AI solutions and when to leverage existing tools.",
-    date: "2025-01-15",
-    readTime: "7 min read",
-  },
-];
+// Posts are fetched from the API (managed via admin panel)
+const defaultPosts: Post[] = [];
 
 export default function PerspectivesPage() {
   const ref = useRef(null);
