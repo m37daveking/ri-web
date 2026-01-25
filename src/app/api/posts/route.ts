@@ -11,6 +11,7 @@ interface Post {
   readTime: string;
   content: string;
   image?: string;
+  status?: 'draft' | 'published';
 }
 
 // Seed posts that will be created on first access if storage is empty
@@ -21,6 +22,7 @@ const seedPosts: Post[] = [
     excerpt: "Why most organisations struggle to capture value from AI — and what to do about it.",
     date: "2025-01-23",
     readTime: "5 min read",
+    status: "published",
     content: `<p>The gap between AI's potential and most organisations' ability to capture it has never been wider. Every week brings announcements of new models, new capabilities, new possibilities. Yet most enterprises remain stuck in pilot purgatory — running experiments that never scale, building proofs of concept that never become products.</p>
 <p>This isn't a technology problem. The technology works. It's a capability problem — a gap between what's possible and what organisations can actually execute.</p>
 <h2>The Three Gaps</h2>
@@ -38,6 +40,7 @@ const seedPosts: Post[] = [
     excerpt: "A framework for deciding when to build custom AI solutions and when to leverage existing tools.",
     date: "2025-01-15",
     readTime: "7 min read",
+    status: "published",
     content: `<p>"Should we build or buy?" It's the question we hear most often from organisations starting their AI journey. And like most important questions, the answer is: it depends.</p>
 <p>But it depends on things most organisations aren't considering. The build vs buy decision isn't primarily about cost or time-to-market. It's about where you want to create competitive advantage.</p>
 <h2>The Decision Framework</h2>

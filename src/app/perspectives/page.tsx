@@ -14,6 +14,7 @@ interface Post {
   date: string;
   readTime: string;
   image?: string;
+  status?: 'draft' | 'published';
 }
 
 // Hardcoded posts - add posts here or use the admin panel
@@ -47,10 +48,12 @@ export default function PerspectivesPage() {
         const apiPosts = await response.json() as Post[];
 
         if (apiPosts.length > 0) {
+          // Filter to only published posts (treat undefined status as published for backwards compatibility)
+          const publishedApiPosts = apiPosts.filter(p => p.status !== 'draft');
           // Merge: API posts first, then defaults that aren't already in API
-          const apiSlugs = new Set(apiPosts.map(p => p.slug));
+          const apiSlugs = new Set(publishedApiPosts.map(p => p.slug));
           const mergedPosts = [
-            ...apiPosts,
+            ...publishedApiPosts,
             ...defaultPosts.filter(p => !apiSlugs.has(p.slug))
           ];
           // Sort by date descending

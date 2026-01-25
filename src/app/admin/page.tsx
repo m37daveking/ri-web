@@ -23,6 +23,7 @@ interface Post {
   readTime: string;
   content: string;
   image?: string;
+  status?: 'draft' | 'published';
 }
 
 export default function AdminPage() {
@@ -141,17 +142,20 @@ export default function AdminPage() {
     setEditingSlug(null);
   };
 
-  const handleSavePost = async (e: React.FormEvent) => {
+  const handleSavePost = async (e: React.FormEvent, status: 'draft' | 'published' = 'published') => {
     e.preventDefault();
     setIsSaving(true);
+
+    const existingPost = editingSlug ? posts.find(p => p.slug === editingSlug) : null;
 
     const newPost: Post = {
       slug,
       title,
       excerpt,
-      date: new Date().toISOString().split("T")[0],
+      date: existingPost?.date || new Date().toISOString().split("T")[0],
       readTime: readTime || "5 min read",
       content,
+      status,
       ...(image && { image }),
     };
 
@@ -174,7 +178,8 @@ export default function AdminPage() {
 
       if (response.ok) {
         setPosts(updatedPosts);
-        setSaveMessage(editingSlug ? "Post updated!" : "Post saved!");
+        const action = status === 'draft' ? 'saved as draft' : 'published';
+        setSaveMessage(editingSlug ? `Post ${action}!` : `Post ${action}!`);
         setTimeout(() => setSaveMessage(""), 3000);
         resetForm();
       } else {
@@ -377,11 +382,19 @@ export default function AdminPage() {
 
               <div className="flex gap-3">
                 <button
+                  type="button"
+                  disabled={isSaving}
+                  onClick={(e) => handleSavePost(e as unknown as React.FormEvent, 'draft')}
+                  className="px-4 py-2 border border-[var(--border)] rounded-lg hover:bg-[var(--background-secondary)] transition-colors disabled:opacity-50"
+                >
+                  {isSaving ? "Saving..." : "Save Draft"}
+                </button>
+                <button
                   type="submit"
                   disabled={isSaving}
                   className="flex-1 px-4 py-2 bg-[var(--accent)] text-black font-medium rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
                 >
-                  {isSaving ? "Saving..." : isEditing ? "Update Post" : "Save Post"}
+                  {isSaving ? "Publishing..." : isEditing ? "Update & Publish" : "Publish"}
                 </button>
                 {isEditing && (
                   <button
@@ -409,9 +422,18 @@ export default function AdminPage() {
                 posts.map((post) => (
                   <div
                     key={post.slug}
-                    className="bg-white rounded-xl shadow-sm p-4 border border-[var(--border)]"
+                    className={`bg-white rounded-xl shadow-sm p-4 border ${post.status === 'draft' ? 'border-yellow-300' : 'border-[var(--border)]'}`}
                   >
-                    <h3 className="font-medium mb-1">{post.title}</h3>
+                    <div className="flex items-start justify-between gap-2 mb-1">
+                      <h3 className="font-medium">{post.title}</h3>
+                      <span className={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 ${
+                        post.status === 'draft'
+                          ? 'bg-yellow-100 text-yellow-700'
+                          : 'bg-green-100 text-green-700'
+                      }`}>
+                        {post.status === 'draft' ? 'Draft' : 'Published'}
+                      </span>
+                    </div>
                     <p className="text-sm text-[var(--foreground-muted)] mb-3">{post.excerpt}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-[var(--foreground-subtle)]">{post.date}</span>
