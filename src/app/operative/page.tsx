@@ -11,26 +11,22 @@ const useDarkHeader = () => {
   useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
-      body {
+      html, body {
         background: #1a1a1a !important;
+      }
+      /* Hide the white gradient at top */
+      body::before {
+        display: none !important;
       }
       header {
         background: #1a1a1a !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-        border: 0 !important;
-        border-width: 0 !important;
-        border-style: none !important;
-        border-bottom-width: 0 !important;
-        box-shadow: 0 10px 0 0 #1a1a1a !important;
-        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
       }
-      header > div {
-        border: 0 !important;
-        border-width: 0 !important;
-      }
-      header::after, header::before {
-        display: none !important;
+      header * {
+        border: none !important;
       }
       header nav a {
         color: white !important;
@@ -40,6 +36,13 @@ const useDarkHeader = () => {
       }
       header img[alt="Radical Intelligence"] {
         filter: invert(1) !important;
+      }
+      /* Mobile hamburger menu button */
+      header button[aria-label="Toggle menu"] {
+        color: white !important;
+      }
+      header button[aria-label="Toggle menu"] svg {
+        stroke: white !important;
       }
     `;
     document.head.appendChild(style);
