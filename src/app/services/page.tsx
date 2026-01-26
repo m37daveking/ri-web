@@ -22,14 +22,14 @@ const services = [
   {
     number: "02",
     title: "Execution",
-    tagline: "Build your ability to build.",
+    tagline: "AI architecture and engineering.",
     description:
-      "We don't build for you. We build with you — in a way that transfers the muscle. Your team finishes with working systems and the skills to evolve them.",
+      "Expert AI engineers working alongside your team in compound collaboration. We ship production-grade AI systems and workflow automation that create real leverage.",
     deliverables: [
-      "Working AI systems",
-      "Trained internal teams",
-      "Documentation and playbooks",
-      "Handover protocols",
+      "Production-grade AI systems",
+      "Workflow automation",
+      "Iterative roadmap development",
+      "Capability transfer protocols",
     ],
     service: "AI Engineering Sprints",
   },
@@ -297,7 +297,7 @@ export default function ServicesPage() {
                   {domains.map((domain, index) => (
                     <div
                       key={domain.id}
-                      className="flex-shrink-0 w-[85vw] bg-white rounded-xl shadow-md border border-[var(--border)] overflow-hidden snap-center"
+                      className="flex-shrink-0 w-[85vw] bg-white rounded-xl shadow-md border border-[var(--border)] overflow-hidden snap-center snap-always"
                     >
                       <div className="bg-[var(--background-secondary)] px-5 py-4 border-b border-[var(--border)]">
                         <div className="flex items-center justify-between">

@@ -14,8 +14,8 @@ const services = [
   {
     number: "02",
     title: "Execution",
-    tagline: "Build your ability to build.",
-    description: "We don't build for you. We build with you — in a way that transfers the muscle. Your team finishes with working systems and the skills to evolve them.",
+    tagline: "AI architecture and engineering.",
+    description: "Expert AI engineers working alongside your team in compound collaboration. We ship production-grade AI systems and workflow automation that create real leverage.",
   },
   {
     number: "03",
