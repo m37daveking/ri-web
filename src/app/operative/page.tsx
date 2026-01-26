@@ -150,7 +150,7 @@ export default function OperativePage() {
             >
               <div className="aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden bg-[#2a2a2a] border border-[#333] relative">
                 <Image
-                  src="/images/operative_hero.jpg"
+                  src="/images/operative_hero3.jpg"
                   alt="Operative Hardware"
                   fill
                   className="object-cover"
@@ -211,12 +211,12 @@ export default function OperativePage() {
                 animate={whatArrivesInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className="aspect-square rounded-2xl overflow-hidden bg-[var(--background-secondary)] border border-[var(--border)] relative">
+                <div className="aspect-square relative">
                   <Image
                     src="/images/operative_1.jpg"
                     alt="Operative in box"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </motion.div>
