@@ -246,19 +246,13 @@ export default function OperativePage() {
                 transition={{ duration: 0.8 }}
                 className="order-2 lg:order-1"
               >
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[var(--background)] border border-[var(--border)] flex items-center justify-center">
-                  <div className="text-center text-[var(--foreground-muted)]">
-                    <p className="font-mono text-xs tracking-wider mb-2">IMAGE</p>
-                    <p className="text-sm">operative-chat.png</p>
-                  </div>
-                  {/* Uncomment when image is ready:
+                <div className="aspect-[4/3] relative">
                   <Image
-                    src="/images/operative-chat.png"
+                    src="/images/message_transparent.png"
                     alt="Operative chat interface"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
-                  */}
                 </div>
               </motion.div>
 
