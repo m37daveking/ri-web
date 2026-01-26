@@ -12,34 +12,24 @@ const useDarkHeader = () => {
     const style = document.createElement('style');
     style.textContent = `
       body {
-        background: var(--foreground) !important;
+        background: #1a1a1a !important;
       }
       header {
         background: #1a1a1a !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-        border: none !important;
-        border-bottom: none !important;
-        border-color: #1a1a1a !important;
-        box-shadow: none !important;
+        border: 0 !important;
+        border-width: 0 !important;
+        border-style: none !important;
+        border-bottom-width: 0 !important;
+        box-shadow: 0 10px 0 0 #1a1a1a !important;
         outline: none !important;
       }
       header > div {
-        border: none !important;
-        border-bottom: none !important;
-        box-shadow: none !important;
+        border: 0 !important;
+        border-width: 0 !important;
       }
-      header::after {
-        content: '' !important;
-        display: block !important;
-        position: absolute !important;
-        bottom: -2px !important;
-        left: 0 !important;
-        right: 0 !important;
-        height: 4px !important;
-        background: #1a1a1a !important;
-      }
-      header::before {
+      header::after, header::before {
         display: none !important;
       }
       header nav a {
@@ -171,7 +161,7 @@ export default function OperativePage() {
             >
               <div className="aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden bg-[#2a2a2a] border border-[#333] relative">
                 <Image
-                  src="/images/operative_hero3.jpg"
+                  src="/images/operative_hero4.jpeg"
                   alt="Operative Hardware"
                   fill
                   className="object-cover"
@@ -234,7 +224,7 @@ export default function OperativePage() {
               >
                 <div className="aspect-square relative">
                   <Image
-                    src="/images/operative_1.jpg"
+                    src="/images/operative_2_transparent.png"
                     alt="Operative in box"
                     fill
                     className="object-contain"
