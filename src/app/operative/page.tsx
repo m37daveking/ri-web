@@ -384,7 +384,7 @@ export default function OperativePage() {
                 transition={{ duration: 0.6 }}
                 className="p-8 bg-[var(--background)] rounded-2xl border border-[var(--border)]"
               >
-                <p className="font-mono text-xs text-[#7CFC7C] tracking-wider mb-6">UPFRONT</p>
+                <p className="font-mono text-xs text-[var(--foreground)] tracking-wider mb-6">UPFRONT</p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7CFC7C" strokeWidth="2" className="flex-shrink-0 mt-0.5">
@@ -427,7 +427,7 @@ export default function OperativePage() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="p-8 bg-[var(--background)] rounded-2xl border border-[var(--border)]"
               >
-                <p className="font-mono text-xs text-[#7CFC7C] tracking-wider mb-6">MONTHLY</p>
+                <p className="font-mono text-xs text-[var(--foreground)] tracking-wider mb-6">MONTHLY</p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7CFC7C" strokeWidth="2" className="flex-shrink-0 mt-0.5">
@@ -481,7 +481,7 @@ export default function OperativePage() {
                   href="mailto:hello@radicalintelligence.com?subject=Operative%20Inquiry"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-[#7CFC7C] text-[var(--foreground)] rounded-lg hover:bg-[#6CE86C] transition-colors font-medium"
                 >
-                  Get in touch
+                  Reserve yours
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>

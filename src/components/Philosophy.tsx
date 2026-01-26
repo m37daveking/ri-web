@@ -27,9 +27,9 @@ export default function Philosophy() {
                 OUR PHILOSOPHY
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-8 text-[var(--foreground)]">
-                The Future is Here,
+                The future is here,
                 <br />
-                Unevenly Practiced.
+                it&apos;s just unevenly practiced.
               </h2>
             </motion.div>
 

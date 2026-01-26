@@ -219,7 +219,7 @@ export default function ServicesPage() {
                         hoveredMovement === movement.id ? "bg-[var(--accent-dim)]" : "bg-[var(--background-secondary)]"
                       }`}
                     >
-                      <h3 className={`font-mono text-xs md:text-sm tracking-wider mb-1 transition-colors duration-300 ${
+                      <h3 className={`font-mono text-[10px] md:text-sm tracking-tight md:tracking-wider mb-1 transition-colors duration-300 ${
                         hoveredMovement === movement.id ? "text-[var(--accent)]" : "text-[var(--foreground)]"
                       }`}>
                         {movement.label}
