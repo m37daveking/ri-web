@@ -279,35 +279,66 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              {/* Mobile Stacked Cards */}
-              <div className="md:hidden space-y-4">
-                {domains.map((domain) => (
-                  <div
-                    key={domain.id}
-                    className="bg-white rounded-xl shadow-md border border-[var(--border)] overflow-hidden"
-                  >
-                    <div className="bg-[var(--background-secondary)] px-5 py-4 border-b border-[var(--border)]">
-                      <h4 className="font-mono text-sm tracking-wider text-[var(--foreground)]">
-                        {domain.label}
-                      </h4>
-                      <p className="text-xs text-[var(--foreground-subtle)] mt-1">
-                        {domain.description}
-                      </p>
-                    </div>
-                    <div className="divide-y divide-[var(--border)]">
-                      {movements.map((movement) => (
-                        <div key={`mobile-${domain.id}-${movement.id}`} className="px-5 py-4">
-                          <p className="font-mono text-xs tracking-wider text-[var(--accent)] mb-2">
-                            {movement.label}
-                          </p>
-                          <p className="text-sm text-[var(--foreground-muted)]">
-                            {gridContent[domain.id][movement.id]}
-                          </p>
+              {/* Mobile Swipeable Cards */}
+              <div className="md:hidden">
+                {/* Swipe hint */}
+                <div className="flex items-center justify-center gap-2 mb-4 text-[var(--foreground-subtle)]">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M19 12H5M5 12l7-7M5 12l7 7" />
+                  </svg>
+                  <span className="text-xs font-mono tracking-wider">SWIPE</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+
+                {/* Horizontal scroll container */}
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-6 px-6">
+                  {domains.map((domain, index) => (
+                    <div
+                      key={domain.id}
+                      className="flex-shrink-0 w-[85vw] bg-white rounded-xl shadow-md border border-[var(--border)] overflow-hidden snap-center"
+                    >
+                      <div className="bg-[var(--background-secondary)] px-5 py-4 border-b border-[var(--border)]">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h4 className="font-mono text-sm tracking-wider text-[var(--foreground)]">
+                              {domain.label}
+                            </h4>
+                            <p className="text-xs text-[var(--foreground-subtle)] mt-1">
+                              {domain.description}
+                            </p>
+                          </div>
+                          <span className="text-xs text-[var(--foreground-subtle)] font-mono">
+                            {index + 1}/{domains.length}
+                          </span>
                         </div>
-                      ))}
+                      </div>
+                      <div className="divide-y divide-[var(--border)]">
+                        {movements.map((movement) => (
+                          <div key={`mobile-${domain.id}-${movement.id}`} className="px-5 py-4">
+                            <p className="font-mono text-xs tracking-wider text-[var(--accent)] mb-2">
+                              {movement.label}
+                            </p>
+                            <p className="text-sm text-[var(--foreground-muted)]">
+                              {gridContent[domain.id][movement.id]}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                {/* Dot indicators */}
+                <div className="flex justify-center gap-2 mt-4">
+                  {domains.map((domain, index) => (
+                    <div
+                      key={`dot-${domain.id}`}
+                      className="w-2 h-2 rounded-full bg-[var(--border)]"
+                    />
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
