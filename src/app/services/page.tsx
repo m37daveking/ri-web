@@ -208,23 +208,24 @@ export default function ServicesPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="lg:col-span-2"
             >
-              <div className="bg-white rounded-2xl shadow-lg border border-[var(--border)] overflow-hidden">
+              {/* Desktop Grid */}
+              <div className="hidden md:block bg-white rounded-2xl shadow-lg border border-[var(--border)] overflow-hidden">
                 {/* Movement headers */}
-                <div className="grid grid-cols-[100px_1fr_1fr_1fr] md:grid-cols-[140px_1fr_1fr_1fr] gap-0 border-b border-[var(--border)]">
-                  <div className="p-4 md:p-5 bg-[var(--background-secondary)]" />
+                <div className="grid grid-cols-[140px_1fr_1fr_1fr] gap-0 border-b border-[var(--border)]">
+                  <div className="p-5 bg-[var(--background-secondary)]" />
                   {movements.map((movement) => (
                     <div
                       key={movement.id}
-                      className={`p-4 md:p-5 text-center border-l border-[var(--border)] transition-colors duration-300 ${
+                      className={`p-5 text-center border-l border-[var(--border)] transition-colors duration-300 ${
                         hoveredMovement === movement.id ? "bg-[var(--accent-dim)]" : "bg-[var(--background-secondary)]"
                       }`}
                     >
-                      <h3 className={`font-mono text-[10px] md:text-sm tracking-tight md:tracking-wider mb-1 transition-colors duration-300 ${
+                      <h3 className={`font-mono text-sm tracking-wider mb-1 transition-colors duration-300 ${
                         hoveredMovement === movement.id ? "text-[var(--accent)]" : "text-[var(--foreground)]"
                       }`}>
                         {movement.label}
                       </h3>
-                      <p className="text-xs text-[var(--foreground-subtle)] hidden md:block">
+                      <p className="text-xs text-[var(--foreground-subtle)]">
                         {movement.description}
                       </p>
                     </div>
@@ -235,21 +236,21 @@ export default function ServicesPage() {
                 {domains.map((domain, rowIndex) => (
                   <div
                     key={domain.id}
-                    className={`grid grid-cols-[100px_1fr_1fr_1fr] md:grid-cols-[140px_1fr_1fr_1fr] gap-0 ${
+                    className={`grid grid-cols-[140px_1fr_1fr_1fr] gap-0 ${
                       rowIndex < domains.length - 1 ? "border-b border-[var(--border)]" : ""
                     }`}
                   >
                     <div
-                      className={`p-4 md:p-5 border-r border-[var(--border)] flex flex-col justify-center transition-colors duration-300 ${
+                      className={`p-5 border-r border-[var(--border)] flex flex-col justify-center transition-colors duration-300 ${
                         hoveredDomain === domain.id ? "bg-[var(--accent-dim)]" : "bg-[var(--background-secondary)]"
                       }`}
                     >
-                      <h4 className={`font-mono text-xs md:text-sm tracking-wider mb-1 transition-colors duration-300 ${
+                      <h4 className={`font-mono text-sm tracking-wider mb-1 transition-colors duration-300 ${
                         hoveredDomain === domain.id ? "text-[var(--accent)]" : "text-[var(--foreground)]"
                       }`}>
                         {domain.label}
                       </h4>
-                      <p className="text-xs text-[var(--foreground-subtle)] hidden md:block">
+                      <p className="text-xs text-[var(--foreground-subtle)]">
                         {domain.description}
                       </p>
                     </div>
@@ -257,7 +258,7 @@ export default function ServicesPage() {
                     {movements.map((movement) => (
                       <div
                         key={`${domain.id}-${movement.id}`}
-                        className={`p-3 md:p-4 border-l border-[var(--border)] transition-all duration-300 cursor-pointer ${
+                        className={`p-4 border-l border-[var(--border)] transition-all duration-300 cursor-pointer ${
                           hoveredDomain === domain.id || hoveredMovement === movement.id
                             ? "bg-[var(--accent-dim)]"
                             : "bg-white hover:bg-[var(--background-secondary)]"
@@ -265,7 +266,7 @@ export default function ServicesPage() {
                         onMouseEnter={() => handleHover(domain.id, movement.id)}
                         onMouseLeave={() => handleHover(null, null)}
                       >
-                        <p className={`text-xs md:text-sm transition-colors duration-300 ${
+                        <p className={`text-sm transition-colors duration-300 ${
                           hoveredDomain === domain.id || hoveredMovement === movement.id
                             ? "text-[var(--foreground)]"
                             : "text-[var(--foreground-muted)]"
@@ -274,6 +275,37 @@ export default function ServicesPage() {
                         </p>
                       </div>
                     ))}
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile Stacked Cards */}
+              <div className="md:hidden space-y-4">
+                {domains.map((domain) => (
+                  <div
+                    key={domain.id}
+                    className="bg-white rounded-xl shadow-md border border-[var(--border)] overflow-hidden"
+                  >
+                    <div className="bg-[var(--background-secondary)] px-5 py-4 border-b border-[var(--border)]">
+                      <h4 className="font-mono text-sm tracking-wider text-[var(--foreground)]">
+                        {domain.label}
+                      </h4>
+                      <p className="text-xs text-[var(--foreground-subtle)] mt-1">
+                        {domain.description}
+                      </p>
+                    </div>
+                    <div className="divide-y divide-[var(--border)]">
+                      {movements.map((movement) => (
+                        <div key={`mobile-${domain.id}-${movement.id}`} className="px-5 py-4">
+                          <p className="font-mono text-xs tracking-wider text-[var(--accent)] mb-2">
+                            {movement.label}
+                          </p>
+                          <p className="text-sm text-[var(--foreground-muted)]">
+                            {gridContent[domain.id][movement.id]}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
