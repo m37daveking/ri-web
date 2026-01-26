@@ -63,7 +63,7 @@ export default function PerspectivesPromo() {
   }, []);
 
   return (
-    <section className="py-20 md:py-28 px-6 md:px-12 bg-[var(--background)]" ref={ref}>
+    <section className="py-20 md:py-28 px-6 md:px-12 bg-[var(--foreground)]" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,16 +72,16 @@ export default function PerspectivesPromo() {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12"
         >
           <div>
-            <p className="font-mono text-sm text-[var(--foreground)] mb-3 tracking-wider">
+            <p className="font-mono text-sm text-[var(--foreground-subtle)] mb-3 tracking-wider">
               PERSPECTIVES
             </p>
-            <h2 className="text-3xl md:text-4xl font-light text-[var(--foreground)]">
+            <h2 className="text-3xl md:text-4xl font-light text-[var(--background)]">
               Latest thinking.
             </h2>
           </div>
           <Link
             href="/perspectives"
-            className="inline-flex items-center gap-2 text-[var(--foreground)] hover:gap-3 transition-all font-medium"
+            className="inline-flex items-center gap-2 text-[var(--background)] hover:gap-3 transition-all font-medium"
           >
             <span>See all</span>
             <svg
