@@ -29,7 +29,7 @@ const offerings = [
       "Production-grade AI systems",
       "Workflow automation",
       "Iterative roadmap development",
-      "Capability transfer protocols",
+      "Capability transfer focus",
     ],
     service: "AI Engineering Sprints",
   },
