@@ -15,11 +15,32 @@ const useDarkHeader = () => {
         background: var(--foreground) !important;
       }
       header {
-        background: var(--foreground) !important;
+        background: #1a1a1a !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-        border: 0 !important;
+        border: none !important;
+        border-bottom: none !important;
+        border-color: #1a1a1a !important;
         box-shadow: none !important;
+        outline: none !important;
+      }
+      header > div {
+        border: none !important;
+        border-bottom: none !important;
+        box-shadow: none !important;
+      }
+      header::after {
+        content: '' !important;
+        display: block !important;
+        position: absolute !important;
+        bottom: -2px !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 4px !important;
+        background: #1a1a1a !important;
+      }
+      header::before {
+        display: none !important;
       }
       header nav a {
         color: white !important;
