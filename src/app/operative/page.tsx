@@ -76,23 +76,6 @@ const useCases = [
   },
 ];
 
-const whyHardware = [
-  {
-    title: "Security that IT will approve",
-    description:
-      "Runs on your network. Data stays on your premises. No cloud AI reading your client files. Audit logs you control.",
-  },
-  {
-    title: "Always on, always yours",
-    description:
-      "Not subject to someone else's uptime. Not sharing capacity. Dedicated compute that belongs to your business.",
-  },
-  {
-    title: "An employee needs a desk",
-    description:
-      "When your AI has a physical presence in your office, you treat it like a real team member. That changes how you use it.",
-  },
-];
 
 export default function OperativePage() {
   useDarkHeader();
@@ -339,45 +322,8 @@ export default function OperativePage() {
           </div>
         </section>
 
-        {/* Section 4: Why hardware */}
+        {/* Section 4: Built on open source */}
         <section className="py-24 md:py-32 px-6 md:px-12 bg-[var(--foreground)]">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-16"
-            >
-              <p className="font-mono text-xs text-[var(--foreground-subtle)] tracking-wider mb-4">THE DIFFERENCE</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[var(--background)]">
-                Why a physical machine
-              </h2>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {whyHardware.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <h3 className="text-xl font-medium mb-4 text-[var(--background)]">
-                    {item.title}
-                  </h3>
-                  <p className="text-[var(--foreground-subtle)] leading-relaxed">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 5: Built on open source */}
-        <section className="py-24 md:py-32 px-6 md:px-12 bg-[var(--background)]">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -386,11 +332,11 @@ export default function OperativePage() {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <p className="font-mono text-xs text-[var(--foreground)] tracking-wider mb-4">THE FOUNDATION</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-8 text-[var(--foreground)]">
+              <p className="font-mono text-xs text-[var(--foreground-subtle)] tracking-wider mb-4">THE FOUNDATION</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-8 text-[var(--background)]">
                 Open foundations. Enterprise hardened.
               </h2>
-              <p className="text-lg text-[var(--foreground-muted)] leading-relaxed mb-8 max-w-3xl mx-auto">
+              <p className="text-lg text-[var(--foreground-subtle)] leading-relaxed mb-8 max-w-3xl mx-auto">
                 Operative is built on Clawdbot, the open-source AI assistant with 18,000+ GitHub stars
                 and an active community. We&apos;ve added enterprise security, audit logging, network isolation,
                 and custom skills for business use. Cutting-edge capabilities without vendor lock-in.
@@ -399,7 +345,7 @@ export default function OperativePage() {
                 href="https://github.com/clawdbot/clawdbot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[var(--foreground)] hover:text-[#7CFC7C] transition-colors font-medium"
+                className="inline-flex items-center gap-2 text-[var(--background)] hover:text-[#7CFC7C] transition-colors font-medium"
               >
                 Learn more about Clawdbot
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
