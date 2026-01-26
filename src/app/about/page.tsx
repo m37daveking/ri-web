@@ -130,6 +130,15 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Dave King */}
               <div className="bg-white rounded-xl shadow-sm p-6">
+                <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
+                  <Image
+                    src="/images/dave-king.png"
+                    alt="Dave King"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Dave King</h3>
                 <p className="font-mono text-xs text-[var(--accent)] mb-3">Partner</p>
                 <p className="text-sm text-[var(--foreground-muted)]">
@@ -139,6 +148,15 @@ export default function AboutPage() {
 
               {/* Pan Demosthenous */}
               <div className="bg-white rounded-xl shadow-sm p-6">
+                <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
+                  <Image
+                    src="/images/pan-demosthenous.png"
+                    alt="Pan Demosthenous"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="text-lg font-medium mb-1 text-[var(--foreground)]">Pan Demosthenous</h3>
                 <p className="font-mono text-xs text-[var(--accent)] mb-3">Partner</p>
                 <p className="text-sm text-[var(--foreground-muted)]">
