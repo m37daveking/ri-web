@@ -1,10 +1,42 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+// Dark header styling for Operative page
+const useDarkHeader = () => {
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      body {
+        background: var(--foreground) !important;
+      }
+      header {
+        background: var(--foreground) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border: 0 !important;
+        box-shadow: none !important;
+      }
+      header nav a {
+        color: white !important;
+      }
+      header nav a:hover {
+        color: var(--accent) !important;
+      }
+      header img[alt="Radical Intelligence"] {
+        filter: invert(1) !important;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+};
 
 const useCases = [
   {
@@ -52,6 +84,8 @@ const whyHardware = [
 ];
 
 export default function OperativePage() {
+  useDarkHeader();
+
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true });
   const whatArrivesRef = useRef(null);
@@ -64,16 +98,8 @@ export default function OperativePage() {
       <Header />
       <main className="min-h-screen bg-[var(--foreground)]">
         {/* Hero - Dark Section */}
-        <section ref={heroRef} className="min-h-screen flex flex-col justify-center pt-24 pb-16 px-6 md:px-12">
-          <div className="max-w-6xl mx-auto w-full">
-            <motion.p
-              className="font-mono text-xs text-[var(--foreground-subtle)] tracking-[0.3em] mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              BY RADICAL INTELLIGENCE
-            </motion.p>
+        <section ref={heroRef} className="min-h-screen flex flex-col justify-center pt-40 md:pt-48 pb-16 px-6 md:px-12 relative overflow-hidden">
+          <div className="max-w-6xl mx-auto w-full relative z-10">
             <motion.h1
               className="text-6xl md:text-8xl lg:text-9xl font-light mb-8 text-[var(--background)] tracking-tight"
               initial={{ opacity: 0, y: 30 }}
@@ -122,21 +148,14 @@ export default function OperativePage() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="relative mt-20"
             >
-              <div className="aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden bg-[#2a2a2a] border border-[#333] flex items-center justify-center">
-                {/* Replace with actual hero image */}
-                <div className="text-center text-[var(--foreground-subtle)]">
-                  <p className="font-mono text-xs tracking-wider mb-2">HERO IMAGE</p>
-                  <p className="text-sm">operative-hero.png</p>
-                </div>
-                {/* Uncomment when image is ready:
+              <div className="aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden bg-[#2a2a2a] border border-[#333] relative">
                 <Image
-                  src="/images/operative-hero.png"
+                  src="/images/operative_hero.jpg"
                   alt="Operative Hardware"
                   fill
                   className="object-cover"
                   priority
                 />
-                */}
               </div>
               {/* Subtle glow effect */}
               <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-3/4 h-40 bg-[#7CFC7C]/20 rounded-full blur-3xl" />
@@ -192,19 +211,13 @@ export default function OperativePage() {
                 animate={whatArrivesInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className="aspect-square rounded-2xl overflow-hidden bg-[var(--background-secondary)] border border-[var(--border)] flex items-center justify-center">
-                  <div className="text-center text-[var(--foreground-muted)]">
-                    <p className="font-mono text-xs tracking-wider mb-2">IMAGE</p>
-                    <p className="text-sm">operative-box.png</p>
-                  </div>
-                  {/* Uncomment when image is ready:
+                <div className="aspect-square rounded-2xl overflow-hidden bg-[var(--background-secondary)] border border-[var(--border)] relative">
                   <Image
-                    src="/images/operative-box.png"
+                    src="/images/operative_1.jpg"
                     alt="Operative in box"
                     fill
                     className="object-cover"
                   />
-                  */}
                 </div>
               </motion.div>
             </div>
