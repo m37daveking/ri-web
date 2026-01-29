@@ -20,7 +20,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[0.95] tracking-tight mb-8 md:mb-12 text-[var(--foreground)]"
         >
-          We Build<br />AI Capability.
+          AI Operating Model Architects.
         </motion.h1>
 
         {/* Subhead with image */}
@@ -52,7 +52,7 @@ export default function Hero() {
             className="max-w-xl order-1 lg:order-2"
           >
             <p className="text-lg md:text-xl lg:text-2xl text-[var(--foreground-muted)] leading-relaxed mb-8">
-              Possibility has outpaced adoption. We help you close the AI gap across people, process and product.
+              Possibility has outpaced execution. We help organisations design how AI runs across people, process, and product.
             </p>
 
             <button

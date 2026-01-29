@@ -478,7 +478,7 @@ export default function OperativePage() {
                   Get in touch to see if it&apos;s right for you.
                 </p>
                 <a
-                  href="mailto:hello@radicalintelligence.com?subject=Operative%20Inquiry"
+                  href="mailto:hello@radicalintelligence.com?subject=I%20want%20to%20hire%20me%20an%20Operative!"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-[#7CFC7C] text-[var(--foreground)] rounded-lg hover:bg-[#6CE86C] transition-colors font-medium"
                 >
                   Reserve yours
